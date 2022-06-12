@@ -18,6 +18,7 @@ module.exports.getAll = async (req, res) => {
  
 module.exports.postMethod = async (req, res) => {
     try {
+        console.log(req.body)
         const user = new req.db.User(req.body.element)
 
         user.save((err) => {
