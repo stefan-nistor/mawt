@@ -1,7 +1,9 @@
 const User = require('./user')
+const Hidroplant = require('./hidroplant')
 
 db = {
-    User
+    User,
+    Hidroplant
 }
 
 module.exports = db

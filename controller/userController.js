@@ -49,7 +49,6 @@ module.exports.updateUser = async(req, res) => {
         arr = req.url.split('/')
         let id = arr[arr.length - 1]
         id = id.padStart(12 - id.length + 1, '0')
-        console.log(id)
         const user = await req.db.User.findOne({ _id: id })
 
         if (user) {
@@ -81,7 +80,6 @@ module.exports.deleteUser = async(req, res) => {
         arr = req.url.split('/')
         let id = arr[arr.length - 1]
         id = id.padStart(12 - id.length + 1, '0')
-        console.log(id)
         const user = await req.db.User.findOne({ _id: id })
 
         if (user) {
@@ -95,6 +93,31 @@ module.exports.deleteUser = async(req, res) => {
             res.statusCode = 404
             res.setHeader('Content-type', 'application/json')
             res.write(JSON.stringify({ success: false, message: 'no user with this id' }))
+            res.end()
+        }
+    } catch (e) {
+        console.log(e)
+        res.statusCode = 500
+        res.setHeader('Content-type', 'application/json')
+        res.write(JSON.stringify({ success: false, message: 'Internal Server error!' }))
+        res.end()
+    }
+}
+
+module.exports.getByEmail = async(req, res) => {
+    try {
+        const email = req.params.email
+        const user = await req.db.User.findOne({ email: email })
+
+        if (user) {
+            res.statusCode = 200
+            res.setHeader('Content-type', 'application/json')
+            res.write(JSON.stringify({ success: true, user, message: 'OK' }))
+            res.end()
+        } else {
+            res.statusCode = 404
+            res.setHeader('Content-type', 'application/json')
+            res.write(JSON.stringify({ success: false, message: 'no user with this email' }))
             res.end()
         }
     } catch (e) {
