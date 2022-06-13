@@ -3,17 +3,26 @@ const jwt = require('jsonwebtoken')
 const { builtinModules } = require('module')
 const constants = require('../utils/constants')
 
-module.exports.register = async (req, res) => {
+const emailRegex = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+
+module.exports.register = async(req, res) => {
     res.setHeader('Content-type', 'application/json')
 
-    if(!req.body.email) {
+    if (!req.body.email) {
         console.error('no email error')
         res.statusCode = 400
         res.write(JSON.stringify({ success: false, message: 'email is required' }))
         res.end()
         return
     }
-    if(!req.body.password) {
+    if (!String(req.body.email).toLowerCase().match(emailRegex)) {
+        console.log('bad email format error')
+        res.statusCode = 401
+        res.write(JSON.stringify({ succes: false, message: 'bad email format' }))
+        res.end()
+        return
+    }
+    if (!req.body.password) {
         console.error('no password error')
         res.statusCode = 400
         res.write(JSON.stringify({ success: false, message: 'password is required' }))
@@ -22,7 +31,7 @@ module.exports.register = async (req, res) => {
     }
 
     const user = await req.db.User.findOne({ email: req.body.email })
-    if(user) {
+    if (user) {
         res.statusCode = 403
         res.write(JSON.stringify({ success: false, messageL: 'email has been taken' }))
         res.end()
@@ -33,7 +42,7 @@ module.exports.register = async (req, res) => {
         })
         console.log(user_)
         user_.save((err) => {
-            if(err) {
+            if (err) {
                 console.log(err)
                 res.statusCode = 500
                 res.write(JSON.stringify({ success: false, message: 'internal server error' }))
@@ -47,9 +56,9 @@ module.exports.register = async (req, res) => {
     }
 }
 
-module.exports.login = async (req, res) => {
+module.exports.login = async(req, res) => {
     res.setHeader('Content-Type', 'application/json')
-    
+
     if (!req.body.email) {
         console.error('no email error')
         res.statusCode = 400

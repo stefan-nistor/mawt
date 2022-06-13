@@ -4,7 +4,7 @@ const { db_url } = require('../utils/constants')
 const mongoose = require('mongoose')
 
 class WebApp {
-    constructor (port, router) {
+    constructor(port, router) {
         this.port = port
         this.router = router
     }
@@ -13,14 +13,14 @@ class WebApp {
 
     }
 
-    async listen () {
+    async listen() {
         const app = this
 
         await mongoose.connect(db_url, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
-        const server = http.createServer(function (req, res) {
+        const server = http.createServer(function(req, res) {
             app.router.route(req, res)
         })
         server.listen(port)

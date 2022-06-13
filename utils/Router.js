@@ -2,7 +2,7 @@ const { isNullOrUndefined } = require('util')
 const { composeDatabase, collectParameters, isAuth, collectBody } = require('../middlewares/payloadValidation')
 const anythingButSlashRegex = '([0-9]|[a-z]|[A-Z])+'
 
-String.prototype.fullMatch = function (regex) {
+String.prototype.fullMatch = function(regex) {
     try {
         regex = new RegExp(regex)
     } catch (e) {
