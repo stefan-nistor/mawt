@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>Managing Water</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" href="/styles-menu-title/menu-title.css">
+<link rel="stylesheet" href="/styles-menu-title/media-style.css">
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="page">
+    <div class="title">
+       
+        <div class="textTitlu" ><a href="/mainFrame/home.html">MANAGING WATER</a></div>
+       
+    </div>
+
+ <div class="flex-container">
+    <div id="main" class="mainframe">
+     <div class="title-mainframe">LOGIN
+        <div id="fieldsMain" class="fields">
+        <input id="username" type="text" placeholder="email" onblur="getUser()">
+        <input id="password" type="password" placeholder="password(8 characters minimum)" onblur="getPassword()">
+        <a href="/user-related/forgot-password/forgot.html" style="text-decoration: none; font-size:small;color: #DEE4EB ; font-family: Garamond;margin-top: -10px; ">Forgot your password?</a>
+        <input type="button" value="CONNECT" onclick="checkIfCompleted()"> 
+        <a href="/user-related/register-page/register.html" style="text-decoration: none; font-size:small;color:#76b865; font-family: Garamond; ">You don't have an account? Register</a>
+        </div>
+     </div>
+    </div> 
+ </div>
+
+     <div class="waveWrapper waveAnimation">
+      <div class="waveWrapperInner bgTop">
+        <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+      </div>
+      <div class="waveWrapperInner bgMiddle">
+       <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+     </div>
+     <div class="waveWrapperInner bgBottom">
+       <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+     </div>
+     </div>
+
+
+ </div>
+
+ <script src="/scrpitForButtons/meniu.js"></script>
+ <script src="/scrpitForButtons/button-functions.js"></script>
+ <script src="login.js"></script>
+
+
+</body>
+</html>

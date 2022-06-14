@@ -1,0 +1,264 @@
+html {
+    height: 100%;
+    margin: 0;
+   
+  }
+body {
+   
+    background-color: #adc5d7;
+    background-image: linear-gradient(#99bcd6,#DEE4EB);
+    height: 100%;
+    margin: 0;
+   
+}
+
+.title {
+
+    z-index: 20;
+    background-color: #0f3961;
+    overflow: hidden;
+    position: static;
+    top: 0;
+    width: 100%;
+    background-image: linear-gradient(#0f3961,#23517dc4,#0f3961);
+    
+}
+.title a{
+    text-decoration: none;
+    color: #76b865;
+    font-weight: bolder;
+}
+.textTitlu {
+    display: block;
+    padding: 1em 3em;
+    font-size :x-large;
+    font-family: Arial;
+}
+.textTitlu :hover{
+    color: #b4b8be;
+}
+
+
+.page{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.flex-container{
+    top:0;
+    height: 100%;
+    display: inherit;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:start;
+   
+}
+
+.meniu{
+    top:0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20em;
+    height: 100%;
+    
+    background-image: linear-gradient(to right,rgb(15, 57, 97,1) , rgba(15, 57, 97, 0.458) );
+    border: #DEE4EB;
+   
+}
+.meniu>.meniuBoxes>input {
+    top:0;
+    margin: 0;
+    display: block;
+    padding: 1.5em 1em;
+    color: #DEE4EB;
+    font-size: large;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0f396100 ;
+    border:#0f3961;
+}
+.meniu>.meniuBoxes>input:hover{
+    color: #b4b8be;
+}
+.meniu>.meniuBoxes>input:active{
+    color:bisque;
+}
+.meniu>.meniuBoxes>input[type=text]{
+    background-color: #28517a;
+    color:bisque;
+    margin:1.5em 0;
+    padding: 1em 1em;
+}
+
+.meniuBoxes{
+    transition: 0.3s;
+    top:0;
+    flex-grow: 3;
+    display: block;
+    flex-direction: column;
+   
+}
+
+.config-buttons{
+
+    z-index: 20;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 30;
+    background-color: #659dbd;
+
+}
+.configs{
+    transition: 0.3s;
+    top:0;
+    flex-grow: 3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+.config-buttons>.configs>input{
+    top:0;
+    margin: 0;
+    display: block;
+    padding: .5em 1.5em;
+    color:#f5edf0;
+    font-size:medium;
+    font-family: 'Lucida Sans';
+    background-color: #659dbd ;
+    border-style: none;
+    
+}
+.config-buttons>.configs>input:hover{
+    background-image: linear-gradient(to right, #659dbd,#85b8d5,#659dbd);
+}
+.config-buttons>.configs>input:active{
+    color:bisque;
+}
+.user>input{
+    top:0;
+    margin: 0;
+    display: block;
+    padding: .5em 1.5em;
+    color:#f5edf0;
+    font-size:medium;
+    font-family: 'Lucida Sans';
+    background-color: #659dbd ;
+    border-style: none;
+}
+.user>input:hover{
+    background-image: linear-gradient(to right, #659dbd,#85b8d5,#659dbd);
+}
+
+.user>input:active{
+    color:bisque;
+}
+.mainframe {
+    z-index: 20;
+    position: relative;
+    margin: auto;
+    width:50%;
+    height: 90%;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content:center;
+    border-radius: 5%;
+    background-color: #0f3961d1;
+    
+}
+.title-mainframe{
+    margin:20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: larger;
+    color:#f5edf0;
+
+}
+
+
+
+
+@media screen and (max-device-width: 320px) {
+    .mainframe{
+        top: 15px;
+        min-width: 20em;
+    }
+    .title-mainframe{
+        font-size: medium;
+    }
+    .title{
+        width: 20em;
+    }
+    .config-buttons{
+        width: 20em;
+        flex-direction: column;
+    }
+    .configs{
+        width: 20em;
+
+    }
+    .meniu{
+        min-width: 20em;
+    }
+    
+   
+}
+
+@media screen and (min-device-width: 321px) and (max-device-width: 499px){
+    .meniu{
+      
+       width: 100%;
+       bottom: -120px;
+      
+    }
+    .meniuBoxes{
+        width: 100%;
+    }
+
+    .config-buttons{
+       
+        flex-direction: column;
+    }
+    .mainframe{
+        top:15px;
+        bottom: 10px;
+        width: 90%;
+    }
+    .configs{
+        width: 20em;
+
+    }
+    
+}
+
+@media screen and (min-device-width: 500px) and (max-device-width: 660px){
+    .menu{
+      
+       margin-top: 4em;
+       width: 100%;
+    }
+    .config-buttons{
+        top:10; 
+        flex-wrap: wrap;
+    }
+    .mainframe{
+        top:10px;
+        bottom: 10px;
+        width: 70%;
+    }
+    
+}
+
+
+
+
+

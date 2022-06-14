@@ -1,0 +1,154 @@
+.mainframe {
+    z-index: 20;
+    position: relative;
+    margin: auto;
+    width:70%;
+    height: 90%;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content:center;
+    border-radius: 5%;
+    background-color: #0f3961d1;
+    
+    
+    
+}
+.title-mainframe{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    align-items:center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 2em;
+    border-radius: 5%;
+    
+}
+.fields{
+    
+    z-index: 20;
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.title-mainframe>.fields>input{
+    z-index: 20;
+    background-color: #659dbd ;
+    padding: 3%;
+    width: 80%;
+    margin: 7% 0;
+    color: #f5edf0;
+    border-style: none;
+    border-radius: 5%;
+    
+}
+.title-mainframe>.fields>input:hover{
+    background-color: #DEE4EB;
+    
+}
+.title-mainframe>.fields>input[type=text]
+{
+    color:#f5edf0;
+}
+.title-mainframe>.fields>input[type=password]
+{
+    color:black;
+}
+.title-mainframe>.fields>input[type=button]
+{
+    background-color:#76b865;
+}
+.title-mainframe>.fields>input[type=text]:hover
+{
+   width: 90%;
+}
+
+.title-mainframe>.fields>input:active{
+    background-color: bisque;
+}
+
+.info{
+    font-size: x-small;
+    color: #DEE4EB;
+    
+}
+
+
+
+
+
+
+
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+.waveWrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+
+}
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+   
+}
+.bgTop {
+    z-index: 0;
+    opacity: 0.5;
+}
+.bgMiddle {
+    z-index: 0;
+    opacity: 0.75;
+}
+.bgBottom {
+    z-index: 11;
+}
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.waveTop {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveTop {
+  animation: move-wave 3s;
+   -webkit-animation: move-wave 3s;
+   -webkit-animation-delay: 1s;
+   animation-delay: 1s;
+}
+.waveMiddle {
+    background-size: 50% 120px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
