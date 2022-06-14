@@ -21,10 +21,9 @@ const getPassword2 = () => {
 }
 
 const checkIfCompleted = () => {
-
-
     if (verifyUser != null && password.length > 7 && password == password2) {
         location.href = "../../mainframe/index.html";
+        return true;
     } else {
 
         if (password.length < 8) {
@@ -48,6 +47,10 @@ const checkIfCompleted = () => {
                 `<span style="color: red; font-size: x-small "> please insert the same password</span>`,
             );
         }
-
+        return false;
     }
+}
+
+const registerUser = () => {
+
 }
