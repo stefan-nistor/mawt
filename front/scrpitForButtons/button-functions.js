@@ -13,3 +13,12 @@ function userPage(){
 function userPage2(){
     location.href="../login-page/index.html";
 }
+
+function getMapPage()
+{
+    location.href="../map-page/map-page.html";
+}
+function getHomePage()
+{
+    location.href="../mainFrame/home.html"
+}
