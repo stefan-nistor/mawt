@@ -1,6 +1,11 @@
 var { ObjectId } = require('mongodb')
+var { checkAuth } = require('../auth/checkAuth')
 
 module.exports.getAll = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
+
     try {
         const users = await req.db.User.find()
         res.statusCode = 200
@@ -17,6 +22,10 @@ module.exports.getAll = async(req, res) => {
 }
 
 module.exports.postMethod = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
+
     try {
         console.log(req.body)
         const user = new req.db.User(req.body.element)
@@ -43,6 +52,9 @@ module.exports.postMethod = async(req, res) => {
 }
 
 module.exports.updateUser = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
 
     try {
         let arr = []
@@ -74,6 +86,9 @@ module.exports.updateUser = async(req, res) => {
 }
 
 module.exports.deleteUser = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
 
     try {
         let arr = []
@@ -105,6 +120,10 @@ module.exports.deleteUser = async(req, res) => {
 }
 
 module.exports.getByEmail = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
+
     try {
         const email = req.params.email
         const user = await req.db.User.findOne({ email: email })

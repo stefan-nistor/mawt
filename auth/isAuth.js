@@ -1,21 +1,18 @@
-const jsonToken = require('jsonwebtoken');
+const jwt = require('jsonwebtoken')
 
-module.exports = (req, res, next) => {
-    const token = req.get('Authorization').split(' ')[1];
+module.exports.verifyAuth = (token) => {
     let decodedToken;
 
     try {
-        decodedToken = jsonToken.verify(token, 'supersecretkey');
+        decodedToken = jwt.verify(token, 'ana_are_mere');
     } catch (err) {
         err.statusCode = 500;
         throw err;
     }
 
     if (!decodedToken) {
-        const err = new Error('You are not logged in !');
+        const err = new Error('You are not logged in!');
         err.statusCode = 404;
         throw err;
     }
-
-    next();
-};
+}

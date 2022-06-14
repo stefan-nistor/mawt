@@ -58,7 +58,6 @@ class Router {
         this.deleteRoutes[url] = controller
     }
 
-
     route(req, res) {
         var url = req.url.split('?')[0]
 

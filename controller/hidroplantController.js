@@ -1,6 +1,11 @@
 var { ObjectId } = require('mongodb')
+var { checkAuth } = require('../auth/checkAuth')
 
 module.exports.getAll = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
+
     try {
         const hidroplants = await req.db.Hidroplant.find()
         res.statusCode = 200
@@ -17,6 +22,10 @@ module.exports.getAll = async(req, res) => {
 }
 
 module.exports.createHidroplant = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
+
     try {
         if (!req.body.name) {
             console.error('no name error')
@@ -95,6 +104,9 @@ module.exports.createHidroplant = async(req, res) => {
 }
 
 module.exports.updateHidroplant = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
 
     try {
         let arr = []
@@ -166,6 +178,9 @@ module.exports.updateHidroplant = async(req, res) => {
 }
 
 module.exports.deleteHidroplant = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
 
     try {
         let arr = []
@@ -197,6 +212,10 @@ module.exports.deleteHidroplant = async(req, res) => {
 }
 
 module.exports.getByName = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
+
     try {
         const name = req.params.name
         const hidroplant = await req.db.Hidroplant.findOne({ name: name })
