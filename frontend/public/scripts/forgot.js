@@ -60,8 +60,8 @@ const checkIfCompleted = () => {
 }
 
 const redirect = () => {
-    location.href = "../../mainframe/home.html";
+    location.href = "./home.html";
 }
 setTimeout(function() {
-    location.href = "../../mainframe/home.html";
+    location.href = "./home.html";
 }, 8000);

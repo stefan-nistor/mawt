@@ -17,7 +17,7 @@ const getPassword = () => {
 const checkIfCompleted = () => {
 
     if (verifyUser != null && password.length > 7) {
-        location.href = "../../mainframe/index.html";
+        location.href = "./index.html";
     } else {
 
         if (password.length < 8) {

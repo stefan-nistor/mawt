@@ -2,14 +2,15 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <title>Managing Water</title>
+    <title>Managing Water Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="../styles-menu-title/menu-title.css">
-    <link rel="stylesheet" href="../styles-menu-title/media-style.css">
-    <link rel="stylesheet" href="../styles-menu-title/waves.css">
-    <link rel="stylesheet" href="./home.css">
+    <link erl="stylesheet" href="../public/styles/media-style.css">
+    <link rel="stylesheet" href="../public/styles/menu-title.css">
+    <link rel="stylesheet" href="../public/styles/waves.css">
+    <link rel="stylesheet" href="../public/styles/map-page.css">
+
 
 </head>
 
@@ -18,7 +19,7 @@
     <div class="page">
         <div class="title">
 
-            <div class="textTitlu"><a href="#home.html">MANAGING WATER</a></div>
+            <div class="textTitlu"><a href="./home.html">MANAGING WATER</a></div>
 
         </div>
 
@@ -38,14 +39,15 @@
             <div id="menu" class="meniu">
                 <div id="boxes-menu" class="meniuBoxes">
                     <input type="text" placeholder="Search...">
-                    <input type="button" value="HOME">
+                    <input type="button" value="HOME" onclick="getHomePage()">
                     <input type="button" value="MAP" onclick="getMapPage()">
                     <input type="button" value="MY HIDROPOWER PLANT">
 
                 </div>
             </div>
             <div id="main" class="mainframe">
-                <div class="title-mainframe">Lista Hidrocentralelor
+                <div class="title-mainframe">Harta
+
 
                 </div>
 
@@ -71,9 +73,11 @@
 
     </div>
 
-    <script src="../scrpitForButtons/meniu.js"></script>
-    <script src="../scrpitForButtons/button-functions.js"></script>
-    <script src="../user-related/change-info/info-user.js"></script>
+    <script src="../public/scripts/meniu.js"></script>
+    <script src="../public/scripts/button-functions.js"></script>
+    <script src="../public/scripts/info-user.js"></script>
+    <script src="../public/scripts/map.page.js"></script>
+
 
 </body>
 

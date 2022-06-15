@@ -6,18 +6,18 @@ const userPage = () => {
     var user = "";
     console.log("useru: " + user);
     if (user.length > 1) {
-        location.href = "../user-related/change-info/info-user.html";
-    } else location.href = "../user-related/login-page/login.html";
+        location.href = "./info-user.html";
+    } else location.href = "./login.html";
 }
 
 const userPage2 = () => {
-    location.href = "../login-page/index.html";
+    location.href = "./login.html";
 }
 
 const getMapPage = () => {
-    location.href = "../map-page/map-page.html";
+    location.href = "./map-page.html";
 }
 
 const getHomePage = () => {
-    location.href = "../mainFrame/home.html"
+    location.href = "./home.html"
 }
