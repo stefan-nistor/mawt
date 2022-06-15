@@ -17,19 +17,28 @@
     <div class="page">
         <div class="title">
 
-            <div class="textTitlu"><a href="./home.html">MANAGING WATER</a></div>
+            <div class="textTitlu">MANAGING WATER</a></div>
 
         </div>
 
         <div class="flex-container">
             <div id="main" class="mainframe">
                 <div class="title-mainframe">LOGIN
+                    <div id="textError">
+                        <span id="textError1" style="color: red; font-size: x-small; display:none; "> password must be at least 8 characters</span>
+                        <span id="textError2" style="color: red; font-size: x-small;display:none; "> invalid email address</span>
+                        
+                    </div>
                     <div id="fieldsMain" class="fields">
-                        <input id="username" type="text" placeholder="email" onblur="getUser()">
-                        <input id="password" type="password" placeholder="password(8 characters minimum)" onblur="getPassword()">
-                        <a href="../forgot-password/forgot.html" style="text-decoration: none; font-size:small;color: #DEE4EB ; font-family: Garamond;margin-top: -10px; ">Forgot your password?</a>
-                        <input type="button" value="CONNECT" onclick="checkIfCompleted()">
-                        <a href="../register-page/register.html" style="text-decoration: none; font-size:small;color:#76b865; font-family: Garamond; ">You don't have an account? Register</a>
+                        <form>
+                            <label for="email"> Email: </label><br>
+                                <input id="username" type="text" placeholder="email" onblur="getUser()"><br>
+                            <label for="password1"> Password </label><br>
+                                <input id="password" type="password" placeholder="password(8 characters minimum)" onblur="getPassword()"><br>
+                            <a href="./forgot.html" style="text-decoration: none; font-size:small;color: #DEE4EB ; font-family: Garamond;margin-top: -10px; ">Forgot your password?</a><br>
+                            <input type="button" value="CONNECT" onclick="checkIfCompleted()"><br>
+                            <a href="./register.html" style="text-decoration: none; font-size:small;color:#76b865; font-family: Garamond; ">You don't have an account? Register</a>
+                        </form>
                     </div>
                 </div>
             </div>

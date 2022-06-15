@@ -26,13 +26,14 @@ body {
 .title a{
     text-decoration: none;
     color: #76b865;
-    font-weight: bolder;
 }
 .textTitlu {
     display: block;
     padding: 1em 3em;
     font-size :x-large;
     font-family: Arial;
+    color: #76b865;
+    font-weight: bolder;
 }
 .textTitlu :hover{
     color: #b4b8be;

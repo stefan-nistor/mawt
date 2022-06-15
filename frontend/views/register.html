@@ -16,20 +16,30 @@
 
     <div class="page">
         <div class="title">
-            <div class="textTitlu"><a href="../mainFrame/home.html">MANAGING WATER</a></div>
+            <div class="textTitlu">MANAGING WATER</a></div>
         </div>
 
         <div class="flex-container">
 
             <div id="main" class="mainframe">
                 <div class="title-mainframe">REGISTER
+                    <div id="textError">
+                        <span id="textError1" style="color: red; font-size: x-small; display:none; "> password must be at least 8 characters</span>
+                        <span id="textError2" style="color: red; font-size: x-small;display:none; "> invalid email address</span>
+                        <span id="textError3" style="color: red; font-size: x-small;display:none; "> please insert the same password</span>
+
+                    </div>
                     <div id="fieldsMain" class="fields">
-                        <input id="username" type="text" placeholder="email" onblur="getUser()">
-                        <input id="password1" type="password" placeholder="password(8 characters minimum)" onblur="getPassword1()">
-                        <input id="password2" type="password" placeholder="password" onblur="getPassword2()">
+                        <form>
+                            <label for="email"> Email: </label><br>
+                                 <input id="username" type="text" placeholder="email" onblur="getUser()"><br>
+                            <label for="password1"> Password </label><br>
+                                <input id="password1" type="password" placeholder="password(8 characters minimum)" onblur="getPassword1()"><br>
+                            <label for="password1"> Password </label><br>    
+                                <input id="password2" type="password" placeholder="password" onblur="getPassword2()"><br>
 
-                        <input type="button" id="registerBtn" value="CONNECT">
-
+                        <input type="button" id="button" value="CONNECT" onclick="checkIfCompleted()" >
+                        </form>
                     </div>
                 </div>
             </div>

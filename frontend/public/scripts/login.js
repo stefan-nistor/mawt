@@ -22,19 +22,14 @@ const checkIfCompleted = () => {
         location.href = "./home.html";
     } else {
 
+        document.getElementById("textError1").style.display="none";
+        document.getElementById("textError2").style.display="none";
         if (password.length < 8) {
-            const container = document.getElementById("fieldsMain");
-            container.insertAdjacentHTML(
-                'afterbegin',
-                `<span style="color: red; font-size: x-small "> password must be at least 8 characters</span>`,
-            );
+            document.getElementById("textError1").style.display="block";
+          
         }
         if (verifyUser == null) {
-            const container = document.getElementById("fieldsMain");
-            container.insertAdjacentHTML(
-                'afterbegin',
-                `<span style="color: red; font-size: x-small "> invalid email address</span>`,
-            );
+            document.getElementById("textError2").style.display="block";
         }
 
     }
