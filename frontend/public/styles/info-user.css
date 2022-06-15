@@ -20,7 +20,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Rubik';
     font-weight: bolder;
     font-size: 1.2em;
     
@@ -61,6 +61,7 @@
 .title-mainframe>.fields>input[type=button]
 {
     background-color:#76b865;
+    font-family: 'Rubik';
 }
 .title-mainframe>.fields>input[type=text]:hover
 {
@@ -82,9 +83,11 @@
     padding: .5em 1.5em;
     font-size: small;
     color: #9dc3d8;
+    font-family: 'Overpass';
 }
 .text-before{
-    color:#f5edf0
+    color:#f5edf0;
+    font-family: 'Rubik';
 }
 
 

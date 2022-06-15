@@ -11,11 +11,13 @@
     }
     .config-buttons{
         width: 20em;
-        flex-direction: column;
+        flex-direction: row;
     }
-    .configs{
+    .user{
         width: 20em;
-
+    }
+    .user>button>a{
+        display: none;
     }
     .meniu{
         width: 20em;
@@ -43,7 +45,7 @@
     .config-buttons{
        
         width: 100%;
-        flex-direction: column;
+        flex-direction: row;
     }
     .mainframe{
         top:10px;
@@ -52,6 +54,12 @@
     .configs{
         width: 20em;
 
+    }
+    .user{
+        width: 20em;
+    }
+    .user>button>a{
+        display: none;
     }
     
 }

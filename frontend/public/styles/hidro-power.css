@@ -1,0 +1,16 @@
+.mainframe{
+    background-color:#0f39617e; 
+    max-height: 40em;
+    font-family: 'Rubik';
+    letter-spacing: 2px;
+    
+}
+.title-mainframe
+{
+    font-family:'Rubik';
+}
+.details-hidro{
+    font-family: 'Overpass';
+    color:#f5edf0;
+    width: 80%;
+}
