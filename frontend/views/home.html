@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>Managing Water</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../public/styles/media-style.css">
+    <link rel="stylesheet" href="../public/styles/menu-title.css">
+    <link rel="stylesheet" href="../public/styles/waves.css">
+    <link rel="stylesheet" href="../public/styles/home.css">
+
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="title">
+
+            <div class="textTitlu"><a href="#home.html">MANAGING WATER</a></div>
+
+        </div>
+
+        <div class="config-buttons">
+            <div class="user">
+               
+                <button title="Config1"><a>Config</a></button>
+                <button title="Config2"><img src="../diagrams/statistics.png"><a>Statistics</a></button>
+                <button onclick="userPage()"> <img src="../diagrams/userIcon.png"><a>User</a></button>
+               
+            </div>
+        </div>
+
+        <span style="z-index: 20;font-size:30px;cursor:pointer; position: absolute;top: 10px;" onclick="openNav()">&#9776; </span>
+        <div class="flex-container">
+            <div id="menu" class="meniu">
+                <div id="boxes-menu" class="meniuBoxes">
+                    <input type="text" placeholder="Search...">
+                    <input type="button" value="HOME" onclick="getHomePage()">
+                    <input type="button" value="MAP" onclick="getMapPage()">
+                    <input type="button" value="MY HIDROPOWER PLANT">
+
+                </div>
+            </div>
+            <div id="main" class="mainframe">
+                <div class="title-mainframe">HIDROPOWER PLANTS
+                </div>
+
+            <div class="hidro-list">
+                <a href="./hidroPower-Page.html">
+                    <div class="hidro-one">
+                        
+                        <div class="white-box">
+                            01
+                        </div>
+                        <div class="text-hidro"> 
+                            <div class="name-hidro">
+                            text
+                             </div>
+                             <div class="details-hidro">
+                              text
+                             </div>
+                        </div>
+                       
+                    </div> 
+                </a>
+                    <div class="hidro-one">
+                        <div class="white-box">
+                                01
+                        </div>
+                        <div class="text-hidro"> 
+                            <div class="name-hidro">
+                            text
+                             </div>
+                             <div class="details-hidro">
+                              text
+                             </div>
+                        </div>
+                    </div>
+                    <div class="hidro-one">
+                        <div class="white-box">
+                                01
+                        </div>
+                        <div class="text-hidro"> 
+                            <div class="name-hidro">
+                            text
+                             </div>
+                             <div class="details-hidro">
+                              text
+                             </div>
+                        </div>
+                    </div>
+                    <div class="hidro-one">
+                        <div class="white-box">
+                                01
+                        </div>
+                        <div class="text-hidro"> 
+                            <div class="name-hidro">
+                            text
+                             </div>
+                             <div class="details-hidro">
+                              text
+                             </div>
+                        </div>
+                    </div>
+                    <div class="hidro-one">
+                        <div class="white-box">
+                                01
+                        </div>
+                        <div class="text-hidro"> 
+                            <div class="name-hidro">
+                            text
+                             </div>
+                             <div class="details-hidro">
+                              text
+                             </div>
+                        </div>
+                    </div>
+                </div>
+        
+
+            </div>
+        </div>
+
+
+
+
+        <div class="waveWrapper waveAnimation">
+            <div class="waveWrapperInner bgTop">
+                <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+            </div>
+            <div class="waveWrapperInner bgMiddle">
+                <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+            </div>
+            <div class="waveWrapperInner bgBottom">
+                <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script src="../public/scripts/meniu.js"></script>
+    <script src="../public/scripts/button-functions.js"></script>
+    <script src="../public/scripts/home.js"></script>
+
+</body>
+
+</html>
