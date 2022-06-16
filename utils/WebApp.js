@@ -18,8 +18,9 @@ class WebApp {
 
         await mongoose.connect(db_url, {
             useNewUrlParser: true,
-            useUnifiedTopology: true
-        })
+            useUnifiedTopology: true,
+            tlsInsecure: true
+        }).then(res => console.log("Successfully connected to Mongo"))
         const server = http.createServer(function (req, res) {
             app.router.route(req, res)
         })

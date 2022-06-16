@@ -1,6 +1,5 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const { builtinModules } = require('module')
 const constants = require('../utils/constants')
 
 module.exports.register = async (req, res) => {
