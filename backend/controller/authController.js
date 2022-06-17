@@ -32,7 +32,7 @@ module.exports.register = async(req, res) => {
     const user = await req.db.User.findOne({ email: req.body.email })
     if (user) {
         res.statusCode = 403
-        res.write(JSON.stringify({ success: false, messageL: 'email has been taken' }))
+        res.write(JSON.stringify({ success: false, message: 'email has been taken' }))
         res.end()
     } else {
         const user_ = new req.db.User({

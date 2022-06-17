@@ -39,7 +39,7 @@ module.exports.collectBody = (req, res, next) => {
                 data += chunk
             } catch (e) {
                 console.log(e)
-                res.writeHead(500, 'aplication/json')
+                res.writeHead(500, 'application/json')
                 res.write(JSON.stringify({ result: false, message: 'internal server error' }))
                 res.end()
             }
@@ -69,7 +69,7 @@ module.exports.composeDatabase = (req, res, next) => {
         next[0](req, res, next.splice(1))
     } catch (e) {
         console.log(e)
-        res.writeHead(500, 'aplication/json')
+        res.writeHead(500, 'application/json')
         res.write(JSON.stringify({ result: false, message: 'internal server error' }))
         res.end()
     }
@@ -81,7 +81,7 @@ module.exports.collectParameters = (req, res, next) => {
         next[0](req, res, next.slice(1))
     } catch (e) {
         console.log(e)
-        res.writeHead(500, 'aplication/json')
+        res.writeHead(500, 'application/json')
         res.write(JSON.stringify({ result: false, message: 'internal server error' }))
         res.end()
     }
@@ -115,7 +115,7 @@ module.exports.checkBody = (req, res, next, args) => {
         next[0](req, res, next.slice(1), args.slice(1))
     } catch (e) {
         console.log(e)
-        res.writeHead(500, 'aplication/json')
+        res.writeHead(500, 'application/json')
         res.write(JSON.stringify({ result: false, message: 'internal server error' }))
         res.end()
     }

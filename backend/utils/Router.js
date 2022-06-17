@@ -2,6 +2,7 @@ const { isNullOrUndefined } = require('util')
 const { composeDatabase, collectParameters, isAuth, collectBody } = require('../middlewares/payloadValidation')
 const anythingButSlashRegex = '([0-9]|[a-z]|[A-Z])+'
 const { cors_headers } = require('./constants')
+const { setHeadersForCors } = require('./util-methods');
 
 String.prototype.fullMatch = function(regex) {
     try {
@@ -61,8 +62,44 @@ class Router {
 
     route(req, res) {
         var url = req.url.split('?')[0]
-        
-        res.set(cors_headers)
+
+        res = setHeadersForCors(res)
+
+        if (req.method === 'OPTIONS') {
+            if (req.rawHeaders.indexOf('GET') !== -1 ||
+                req.rawHeaders.indexOf('POST') !== -1 ||
+                req.rawHeaders.indexOf('PUT') !== -1 ||
+                req.rawHeaders.indexOf('DELETE') !== -1 ||
+                req.rawHeaders.indexOf('PATCH') !== -1) {
+
+                res.statusCode = 200
+                res.write(JSON.stringify({ success: true, message: 'method allowed' }))
+                res.end()
+                return;
+            } else {
+                res.statusCode = 401
+                res.write(JSON.stringify({ success: false, message: 'method not allowed' }))
+                res.end()
+                return;
+            }
+
+            // if (req.rawHeaders.indexOf('GET') !== -1) {
+            //     req.method = 'GET'
+            // } else if (req.rawHeaders.indexOf('POST') !== -1) {
+            //     req.method = 'POST'
+            // } else if (req.rawHeaders.indexOf('PUT') !== -1) {
+            //     req.method = 'PUT'
+            // } else if (req.rawHeaders.indexOf('DELETE') !== -1) {
+            //     req.method = 'DELETE'
+            // } else if (req.rawHeaders.indexOf('PATCH') !== -1) {
+            //     req.method = 'PATCH'
+            // } else {
+            //     res.statusCode = 401
+            //     res.write(JSON.stringify({ success: false, message: 'method not allowed' }))
+            //     res.end()
+            //     return;
+            // }
+        }
 
         if (req.method === 'GET') {
             for (const routeKey of Object.keys(this.getRoutes)) {

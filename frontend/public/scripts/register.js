@@ -30,9 +30,10 @@ const checkIfCompleted = () => {
     document.getElementById("textError1").style.display = "none";
     document.getElementById("textError2").style.display = "none";
     document.getElementById("textError3").style.display = "none";
+    document.getElementById("textSuccess").style.display = "none";
+    document.getElementById("textErrorRegister").style.display = "none";
 
     if (verifyEmail != null && password.length > 7 && password == password2) {
-        // location.href = "./home.html";
         return true;
     } else {
         if (password.length < 8) {
@@ -48,49 +49,27 @@ const checkIfCompleted = () => {
     }
 }
 
-const registerUser = () => {
+const registerUser = async() => {
     if (!checkIfCompleted()) {
         return;
     }
 
-    console.log('asd1');
-
-    fetch(`${BASE_URL}/auth/register`, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-type': 'text/plain',
-            },
-            body: {
-                email: email,
-                password: password
-            }
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(err => console.log(err));
-
-    // axios.post(`${BASE_URL}/auth/register`, {
-    //     email: email,
-    //     password: password
-    // }).then((res) => {
-    //     console.log(res);
-    // }).catch((err) => {
-    //     console.log(err);
-    // });
-}
-
-const makeReq = async(user) => {
     try {
-        const response = await axios.post(`${BASE_URL}/auth/register`, {
+        const response = await axios.post(`${BASE_URL}/auth/register`, JSON.stringify({
             email: email,
             password: password
-        });
+        }));
 
         console.log(response);
+        // document.getElementById("textSuccess").style.display = "block";
+        alert("Register successful");
+        location.href = "./login.html";
         return response;
     } catch (err) {
         console.log(err);
+        let errText = document.getElementById("textErrorRegister");
+        errText.textContent = "Error at register:" + "\n" + err.response.data.message;
+        errText.style.display = "block";
         return err;
     }
 }
