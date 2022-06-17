@@ -26,20 +26,20 @@
                 <div class="title-mainframe">REGISTER
                     <div id="textError">
                         <span id="textError1" style="color: red; font-size: x-small; display:none; "> password must be at least 8 characters</span>
-                        <span id="textError2" style="color: red; font-size: x-small;display:none; "> invalid email address</span>
-                        <span id="textError3" style="color: red; font-size: x-small;display:none; "> please insert the same password</span>
+                        <span id="textError2" style="color: red; font-size: x-small; display:none; "> invalid email address</span>
+                        <span id="textError3" style="color: red; font-size: x-small; display:none; "> please insert the same password</span>
 
                     </div>
                     <div id="fieldsMain" class="fields">
                         <form>
                             <label for="email"> Email: </label><br>
-                            <input id="email" type="text" placeholder="email" onblur="getEmail()"><br>
+                            <input id="email" type="text" placeholder="email"><br>
                             <label for="password1"> Password </label><br>
-                            <input id="password1" type="password" placeholder="password(8 characters minimum)" onblur="getPassword1()"><br>
+                            <input id="password1" type="password" placeholder="password(8 characters minimum)"><br>
                             <label for="password1"> Password </label><br>
-                            <input id="password2" type="password" placeholder="password" onblur="getPassword2()"><br>
+                            <input id="password2" type="password" placeholder="password"><br>
 
-                            <input type="button" id="button" value="CONNECT" onclick="checkIfCompleted()">
+                            <input type="button" id="registerBtn" value="CONNECT">
                         </form>
                     </div>
                 </div>
@@ -63,7 +63,9 @@
 
     <script src="../public/scripts/meniu.js"></script>
     <script src="../public/scripts/button-functions.js"></script>
-    <script src="../public/scripts/register.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script type="module" src="../public/scripts/constants.js"></script>
+    <script type="module" src="../public/scripts/register.js"></script>
 
 
 </body>

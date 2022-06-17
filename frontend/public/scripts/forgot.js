@@ -1,11 +1,11 @@
-var user = "";
+var email = "";
 var regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 var verifyEmail;
 
 
 const getEmail = () => {
     email = document.querySelector("#email").value;
-    verifyEmail = regex.match(email);
+    verifyEmail = regex.exec(email);
     return email;
 }
 
