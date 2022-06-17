@@ -17,7 +17,8 @@
     <div class="page">
         <div class="title">
 
-            <div class="textTitlu">MANAGING WATER</a></div>
+            <div class="textTitlu">MANAGING WATER</a>
+            </div>
 
         </div>
 
@@ -27,14 +28,14 @@
                     <div id="textError">
                         <span id="textError1" style="color: red; font-size: x-small; display:none; "> password must be at least 8 characters</span>
                         <span id="textError2" style="color: red; font-size: x-small;display:none; "> invalid email address</span>
-                        
+
                     </div>
                     <div id="fieldsMain" class="fields">
                         <form>
                             <label for="email"> Email: </label><br>
-                                <input id="username" type="text" placeholder="email" onblur="getUser()"><br>
+                            <input id="email" type="text" placeholder="email" onblur="getEmail()"><br>
                             <label for="password1"> Password </label><br>
-                                <input id="password" type="password" placeholder="password(8 characters minimum)" onblur="getPassword()"><br>
+                            <input id="password" type="password" placeholder="password(8 characters minimum)" onblur="getPassword()"><br>
                             <a href="./forgot.html" style="text-decoration: none; font-size:small;color: #DEE4EB ; font-family: 'Overpass';margin-top: -10px; ">Forgot your password?</a><br>
                             <input type="button" value="CONNECT" onclick="checkIfCompleted()"><br>
                             <a href="./register.html" style="text-decoration: none; font-size:small;color:#76b865; font-family: 'Overpass'; ">You don't have an account? Register</a>
