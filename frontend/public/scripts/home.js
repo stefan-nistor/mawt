@@ -1,3 +1,10 @@
-import { BASE_URL, JWT_TOKEN } from "./constants.js";
+import { BASE_URL } from "./constants.js";
 
-alert(JWT_TOKEN.value);
+const authToken = sessionStorage.getItem("JWT_TOKEN");
+
+// route protection
+if (authToken == null) {
+    location.href = "./login.html";
+}
+
+console.log(authToken);

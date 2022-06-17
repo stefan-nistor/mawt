@@ -5,7 +5,7 @@ const constants = require('../utils/constants')
 const emailRegex = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 
 module.exports.register = async(req, res) => {
-    res.setHeader('Content-type', 'application/json')
+    res.setHeader('Content-Type', 'application/json')
 
     if (!req.body.email) {
         console.error('no email error')
@@ -85,7 +85,7 @@ module.exports.login = async(req, res) => {
             if (bcrypt.compareSync(req.body.password, user.password)) {
                 res.statusCode = 200
                 const token = jwt.sign(req.body, constants.secret)
-                res.setHeader('Authorization', 'Bearer ' + token) // TODO get from header
+                res.setHeader('Authorization', `Bearer ${token}`) // TODO get from header
                 res.write(JSON.stringify({ success: true, token: token, message: 'login successful' }))
                 res.end()
             } else {

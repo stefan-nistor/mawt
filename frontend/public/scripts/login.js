@@ -1,4 +1,6 @@
-import { BASE_URL, JWT_TOKEN } from "./constants.js";
+import { BASE_URL } from "./constants.js";
+
+sessionStorage.setItem("JWT_TOKEN", null);
 
 var email = "";
 var password;
@@ -55,7 +57,7 @@ const loginUser = async() => {
         console.log(response);
         // document.getElementById("textSuccess").style.display = "block";
         alert("Login successful");
-        JWT_TOKEN.value = response.data.token;
+        sessionStorage.setItem("JWT_TOKEN", response.data.token);
 
         location.href = "./home.html";
         return response;
