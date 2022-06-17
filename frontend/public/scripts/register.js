@@ -1,4 +1,4 @@
-import { BASE_URL, JWT_TOKEN } from "./constants.js";
+import { BASE_URL } from "./constants.js";
 
 var email = "";
 var password;
@@ -68,7 +68,7 @@ const registerUser = async() => {
     } catch (err) {
         console.log(err);
         let errText = document.getElementById("textErrorRegister");
-        errText.textContent = "Error at register:" + "\n" + err.response.data.message;
+        errText.textContent = "Error at register: " + err.response.data.message;
         errText.style.display = "block";
         return err;
     }

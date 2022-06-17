@@ -27,17 +27,19 @@
                 <div class="title-mainframe">LOGIN
                     <div id="textError">
                         <span id="textError1" style="color: red; font-size: x-small; display:none; "> password must be at least 8 characters</span>
-                        <span id="textError2" style="color: red; font-size: x-small;display:none; "> invalid email address</span>
+                        <span id="textError2" style="color: red; font-size: x-small; display:none; "> invalid email address</span>
+                        <span id="textSuccess" style="color: limegreen; font-size: x-small; display:none; ">Login successful</span>
+                        <span id="textErrorLogin" style="color: red; font-size: x-small; display:none; "></span>
 
                     </div>
                     <div id="fieldsMain" class="fields">
                         <form>
                             <label for="email"> Email: </label><br>
-                            <input id="email" type="text" placeholder="email" onblur="getEmail()"><br>
+                            <input id="email" type="text" placeholder="email"><br>
                             <label for="password1"> Password </label><br>
-                            <input id="password" type="password" placeholder="password(8 characters minimum)" onblur="getPassword()"><br>
+                            <input id="password" type="password" placeholder="password(8 characters minimum)"><br>
                             <a href="./forgot.html" style="text-decoration: none; font-size:small;color: #DEE4EB ; font-family: 'Overpass';margin-top: -10px; ">Forgot your password?</a><br>
-                            <input type="button" value="CONNECT" onclick="checkIfCompleted()"><br>
+                            <input type="button" id="loginBtn" value="CONNECT"><br>
                             <a href="./register.html" style="text-decoration: none; font-size:small;color:#76b865; font-family: 'Overpass'; ">You don't have an account? Register</a>
                         </form>
                     </div>
@@ -62,7 +64,8 @@
 
     <script src="../public/scripts/meniu.js"></script>
     <script src="../public/scripts/button-functions.js"></script>
-    <script src="../public/scripts/login.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="../public/scripts/login.js"></script>
 
 
 </body>

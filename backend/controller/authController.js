@@ -85,8 +85,8 @@ module.exports.login = async(req, res) => {
             if (bcrypt.compareSync(req.body.password, user.password)) {
                 res.statusCode = 200
                 const token = jwt.sign(req.body, constants.secret)
-                res.setHeader('Authorization', 'Bearer ' + token)
-                res.write(JSON.stringify({ success: true, message: 'login successful' }))
+                res.setHeader('Authorization', 'Bearer ' + token) // TODO get from header
+                res.write(JSON.stringify({ success: true, token: token, message: 'login successful' }))
                 res.end()
             } else {
                 res.statusCode = 401
