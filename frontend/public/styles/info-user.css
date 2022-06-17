@@ -2,18 +2,18 @@
     z-index: 20;
     position: relative;
     margin: auto;
-    width:70%;
+    width: 70%;
     height: 90%;
     display: flex;
     flex-direction: column;
     align-self: center;
-    align-items:inherit;
-    justify-content:left;
+    align-items: inherit;
+    justify-content: left;
     border-radius: 5%;
     background-color: #0f3961d1;
-    
 }
-.title-mainframe{
+
+.title-mainframe {
     display: flex;
     width: 90%;
     margin-top: 10%;
@@ -23,57 +23,53 @@
     font-family: 'Rubik';
     font-weight: bolder;
     font-size: 1.2em;
-    
-
 }
-.fields{
+
+.fields {
     z-index: 20;
     display: flex;
     width: 50%;
     flex-direction: column;
     align-items: center;
-    
 }
-.title-mainframe>.fields>input{
-    
+
+.title-mainframe>.fields>input {
     z-index: 20;
-    background-color: #659dbd ;
+    background-color: #659dbd;
     padding: 3%;
     width: 80%;
     margin: 7% 0;
     color: #f5edf0;
     border-style: none;
     border-radius: 5%;
-    
-}
-.title-mainframe>.fields>input:hover{
-    background-color: #DEE4EB;
-    
-}
-.title-mainframe>.fields>input[type=text]
-{
-    color:#f5edf0;
-}
-.title-mainframe>.fields>input[type=password]
-{
-    color:black;
-}
-.title-mainframe>.fields>input[type=button]
-{
-    background-color:#76b865;
-    font-family: 'Rubik';
-}
-.title-mainframe>.fields>input[type=text]:hover
-{
-   width: 90%;
 }
 
-.title-mainframe>.fields>input:active{
+.title-mainframe>.fields>input:hover {
+    background-color: #DEE4EB;
+}
+
+.title-mainframe>.fields>input[type=text] {
+    color: #f5edf0;
+}
+
+.title-mainframe>.fields>input[type=password] {
+    color: black;
+}
+
+.title-mainframe>.fields>input[type=button] {
+    background-color: #76b865;
+    font-family: 'Rubik';
+}
+
+.title-mainframe>.fields>input[type=text]:hover {
+    width: 90%;
+}
+
+.title-mainframe>.fields>input:active {
     background-color: bisque;
 }
 
-
-.current-info{
+.current-info {
     background-color: #dee4eb3d;
     margin-top: 10%;
     border-radius: 5%;
@@ -85,12 +81,8 @@
     color: #9dc3d8;
     font-family: 'Overpass';
 }
-.text-before{
-    color:#f5edf0;
+
+.text-before {
+    color: #f5edf0;
     font-family: 'Rubik';
 }
-
-
-
-
-

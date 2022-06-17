@@ -1,18 +1,17 @@
-var user = "";
+var email = "";
 var regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-var verifyUser;
+var verifyEmail;
 
 
-const getUser = () => {
-
-    user = document.querySelector("#username").value;
-    verifyUser = regex.exec(user);
-    console.log(verifyUser);
+const getEmail = () => {
+    email = document.querySelector("#email").value;
+    verifyEmail = regex.exec(email);
+    return email;
 }
 
 const checkIfCompleted = () => {
 
-    if (verifyUser != null) {
+    if (verifyEmail != null) {
 
         document.getElementById("waves").style.zIndex = "22";
 
@@ -47,15 +46,11 @@ const checkIfCompleted = () => {
 
         setTimeout(8000);
     } else {
-
-        if (verifyUser == null) {
-            const container = document.getElementById("fieldsMain");
-            container.insertAdjacentHTML(
-                'afterbegin',
-                `<span style="color: red; font-size: x-small "> invalid email address</span>`,
-            );
-        }
-
+        const container = document.getElementById("fieldsMain");
+        container.insertAdjacentHTML(
+            'afterbegin',
+            `<span style="color: red; font-size: x-small "> invalid email address</span>`,
+        );
     }
 }
 

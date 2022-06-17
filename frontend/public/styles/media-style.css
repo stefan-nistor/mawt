@@ -1,90 +1,74 @@
 @media screen and (max-device-width: 320px) {
-    .mainframe{
+    .mainframe {
         top: 15px;
         width: 70%;
     }
-    .title-mainframe{
+    .title-mainframe {
         font-size: medium;
     }
-    .title{
+    .title {
         width: 20em;
     }
-    .config-buttons{
+    .config-buttons {
         width: 20em;
         flex-direction: row;
     }
-    .user{
+    .user {
         width: 20em;
     }
-    .user>button>a{
+    .user>button>a {
         display: none;
     }
-    .meniu{
+    .meniu {
         width: 20em;
     }
-    .waveWrapper .waveWrapperInner .wave
-    {
+    .waveWrapper .waveWrapperInner .wave {
         width: 0%;
         visibility: hidden;
-        
-        
     }
-    
-   
 }
 
-@media screen and (min-device-width: 321px) and (max-device-width: 499px){
-    .meniu{
-       width: 100%;
-       
-    }
-    .boxes-menu{
+@media screen and (min-device-width: 321px) and (max-device-width: 499px) {
+    .meniu {
         width: 100%;
     }
-    
-    .config-buttons{
-       
+    .boxes-menu {
+        width: 100%;
+    }
+    .config-buttons {
         width: 100%;
         flex-direction: row;
     }
-    .mainframe{
-        top:10px;
+    .mainframe {
+        top: 10px;
         width: 90%;
     }
-    .configs{
-        width: 20em;
-
-    }
-    .user{
+    .configs {
         width: 20em;
     }
-    .user>button>a{
+    .user {
+        width: 20em;
+    }
+    .user>button>a {
         display: none;
     }
-    
 }
 
-@media screen and (min-device-width: 500px) and (max-device-width: 660px){
-    
-    .meniu{
+@media screen and (min-device-width: 500px) and (max-device-width: 660px) {
+    .meniu {
         width: 100%;
-        
-     }
-     .boxes-menu{
-         width: 100%;
-     }
-     
-     .config-buttons{
-        
-         width: 100%;
-         flex-direction: column;
-     }
-     .mainframe{
-         top:10px;
-     }
-     .configs{
-         width: 20em;
- 
-     }
-    
+    }
+    .boxes-menu {
+        width: 100%;
+    }
+    .config-buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+    .mainframe {
+        top: 10px;
+    }
+    .configs {
+        width: 20em;
+    }
 }
