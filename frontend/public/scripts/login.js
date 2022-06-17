@@ -17,9 +17,10 @@ const getPassword = () => {
 
 const checkIfCompleted = () => {
 
+    document.getElementById("textError1").style.display = "none";
+    document.getElementById("textError2").style.display = "none";
+
     if (verifyEmail != null && password.length > 7) {
-        document.getElementById("textError1").style.display = "none";
-        document.getElementById("textError2").style.display = "none";
         location.href = "./home.html";
     } else {
         if (password && password.length < 8) {

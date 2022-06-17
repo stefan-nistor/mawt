@@ -27,11 +27,11 @@ const checkIfCompleted = () => {
     getPassword1();
     getPassword2();
 
-    if (verifyEmail != null && password.length > 7 && password == password2) {
+    document.getElementById("textError1").style.display = "none";
+    document.getElementById("textError2").style.display = "none";
+    document.getElementById("textError3").style.display = "none";
 
-        document.getElementById("textError1").style.display = "none";
-        document.getElementById("textError2").style.display = "none";
-        document.getElementById("textError3").style.display = "none";
+    if (verifyEmail != null && password.length > 7 && password == password2) {
         // location.href = "./home.html";
         return true;
     } else {
@@ -55,42 +55,29 @@ const registerUser = () => {
 
     console.log('asd1');
 
-    var data = JSON.stringify({
-        "email": "john@john.com",
-        "password": "12345678"
-    });
-
-    var config = {
-        method: 'post',
-        url: `${BASE_URL}/auth/register`,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        data: data
-    };
-
-    axios(config)
-        .then(function(response) {
-            console.log(JSON.stringify(response.data));
+    fetch(`${BASE_URL}/auth/register`, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-type': 'text/plain',
+            },
+            body: {
+                email: email,
+                password: password
+            }
         })
-        .catch(function(error) {
-            console.log(error);
-        });
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
 
-    // makeReq(user);
     // axios.post(`${BASE_URL}/auth/register`, {
-    //     body: {
-    //         "email": email,
-    //         "password": password,
-    //     },
-    //     headers: {
-
-    //     }
+    //     email: email,
+    //     password: password
     // }).then((res) => {
     //     console.log(res);
     // }).catch((err) => {
     //     console.log(err);
-    // })
+    // });
 }
 
 const makeReq = async(user) => {
@@ -109,4 +96,4 @@ const makeReq = async(user) => {
 }
 
 const registerBtn = document.querySelector('#registerBtn');
-registerBtn.addEventListener('click', registerUser);
+registerBtn.addEventListener('click', registerUser, false);

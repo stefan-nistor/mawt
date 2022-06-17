@@ -6,8 +6,8 @@ module.exports = {
     rounds: 5,
     cors_headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "OPTIONS, GET, PUT, POST, DELETE, PATCH",
+        "Access-Control-Allow-Methods": "OPTIONS, GET, POST, PUT, DELETE, PATCH",
         "Access-Control-Max-Age": 2592000,
-        "COntent-type": "application/json"
+        "Content-type": "application/json"
     }
 }
