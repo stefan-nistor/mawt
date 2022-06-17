@@ -1,6 +1,7 @@
 const { isNullOrUndefined } = require('util')
 const { composeDatabase, collectParameters, isAuth, collectBody } = require('../middlewares/payloadValidation')
 const anythingButSlashRegex = '([0-9]|[a-z]|[A-Z])+'
+const { cors_headers } = require('./constants')
 
 String.prototype.fullMatch = function(regex) {
     try {
@@ -60,6 +61,8 @@ class Router {
 
     route(req, res) {
         var url = req.url.split('?')[0]
+        
+        res.set(cors_headers)
 
         if (req.method === 'GET') {
             for (const routeKey of Object.keys(this.getRoutes)) {

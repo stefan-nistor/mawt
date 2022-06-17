@@ -4,7 +4,7 @@ module.exports.checkAuth = (req, res) => {
     if (!req.headers.authorization) {
         res.statusCode = 401
         res.setHeader('Content-Type', 'application/json')
-        res.write(JSON.stringify({ success: false, response: 'no token', message: 'UNAUTHORIZED' }))
+        res.write(JSON.stringify({ success: false, message: 'no token' }))
         res.end()
         return false
     }
@@ -15,7 +15,7 @@ module.exports.checkAuth = (req, res) => {
     } catch (err) {
         res.statusCode = 401
         res.setHeader('Content-Type', 'application/json')
-        res.write(JSON.stringify({ success: false, response: 'invalid token', message: 'UNAUTHORIZED' }))
+        res.write(JSON.stringify({ success: false, message: 'invalid token' }))
         res.end()
         return false
     }
