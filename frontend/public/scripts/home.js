@@ -48,26 +48,7 @@ const addHidropowerList = async() => {
                         </div>
                     </a>`;
         hidroList.innerHTML += item;
-        console.log(hidroplants[counter]);
     }
 }
 
 addHidropowerList();
-
-/* <a href="./hidroPower-Page.html">
-                        <div class="hidro-one">
-
-                            <div class="white-box">
-                                01
-                            </div>
-                            <div class="text-hidro">
-                                <div class="name-hidro">
-                                    text
-                                </div>
-                                <div class="details-hidro">
-                                    text
-                                </div>
-                            </div>
-
-                        </div>
-                    </a> */

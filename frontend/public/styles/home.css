@@ -82,10 +82,12 @@
     display: flex;
     flex-direction: column;
     margin: 10px auto;
+    text-align: center;
 }
 
 .name-hidro {
     font-size: large;
+    text-align: center;
 }
 
 .details-hidro {
