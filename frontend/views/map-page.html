@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link erl="stylesheet" href="../public/styles/media-style.css">
     <link rel="stylesheet" href="../public/styles/menu-title.css">
-    <link rel="stylesheet" href="../public/styles/waves.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
     <link rel="stylesheet" href="../public/styles/map-page.css">
 
 
@@ -43,11 +43,27 @@
                 </div>
             </div>
             <div id="main" class="mainframe">
-                <div class="title-mainframe">Harta
-
-
+                <div class="title-mainframe">Choose one Hidropower Plant to see on the map
                 </div>
 
+                <input type="text" id="hidroInput" onkeyup="myFunction()" placeholder="Search for names.." onblur="dissapear()">
+                <ul id="dropdownHidro">
+                  <li><a href="#">1Hidro</a></li>
+                  <li><a href="#">H2idro</a></li>
+                
+                  <li><a href="#">3Hidro</a></li>
+                  <li><a href="#">4Hidro</a></li>
+                
+                  <li><a href="#">5Hidro</a></li>
+                  <li><a href="#">6Hidro</a></li>
+                  <li><a href="#">7Hidro</a></li>
+                </ul>
+
+                <div id="map">
+                </div>
+
+
+                
             </div>
         </div>
 
@@ -73,8 +89,10 @@
     <script src="../public/scripts/meniu.js"></script>
     <script src="../public/scripts/button-functions.js"></script>
     <script src="../public/scripts/info-user.js"></script>
+    
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
     <script src="../public/scripts/map.page.js"></script>
-
+    <script src="../public/scripts/searchBarMapPage.js"></script>
 
 </body>
 
