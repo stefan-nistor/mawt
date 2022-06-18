@@ -82,23 +82,6 @@ class Router {
                 res.end()
                 return;
             }
-
-            // if (req.rawHeaders.indexOf('GET') !== -1) {
-            //     req.method = 'GET'
-            // } else if (req.rawHeaders.indexOf('POST') !== -1) {
-            //     req.method = 'POST'
-            // } else if (req.rawHeaders.indexOf('PUT') !== -1) {
-            //     req.method = 'PUT'
-            // } else if (req.rawHeaders.indexOf('DELETE') !== -1) {
-            //     req.method = 'DELETE'
-            // } else if (req.rawHeaders.indexOf('PATCH') !== -1) {
-            //     req.method = 'PATCH'
-            // } else {
-            //     res.statusCode = 401
-            //     res.write(JSON.stringify({ success: false, message: 'method not allowed' }))
-            //     res.end()
-            //     return;
-            // }
         }
 
         if (req.method === 'GET') {
