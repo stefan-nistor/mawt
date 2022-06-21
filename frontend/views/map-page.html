@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="../public/styles/media-style.css">
     <link rel="stylesheet" href="../public/styles/menu-title.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
     <link rel="stylesheet" href="../public/styles/map-page.css">
     <link rel="stylesheet" href="../public/styles/waves.css">
 
@@ -38,7 +38,7 @@
         <div class="flex-container">
             <div id="menu" class="meniu">
                 <div id="boxes-menu" class="meniuBoxes">
-                    <input type="text" placeholder="Search...">
+                    <input type="text" name="searchBar" class="searchBar" placeholder="Search...">
                     <input type="button" value="HOME" onclick="getHomePage()">
                     <input type="button" value="MAP" onclick="getMapPage()">
                     <input type="button" value="MY HIDROPOWER PLANT">
@@ -51,14 +51,14 @@
 
                 <input type="text" name="hidroOnMap" id="hidroInput" onkeyup="myFunction()" placeholder="Search for names.." onblur="dissapear()">
                 <ul id="dropdownHidro">
-                  
+
                 </ul>
 
                 <div id="map">
                 </div>
 
 
-                
+
             </div>
         </div>
 
@@ -85,12 +85,13 @@
     <script src="../public/scripts/button-functions.js"></script>
     <script src="../public/scripts/info-user.js"></script>
     <script type="module" src="../public/scripts/initialiseSearchBar.js"></script>
-    
+
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../public/scripts/searchBarMapPage.js"></script>
+    <script type="module" src="../public/scripts/global-events.js"></script>
     <script type="module" src="../public/scripts/map.page.js"></script>
-   
+
 
 </body>
 

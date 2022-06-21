@@ -7,7 +7,9 @@ const userPage = () => {
     console.log("useru: " + user);
     if (user.length > 1) {
         location.href = "./info-user.html";
-    } else location.href = "./login.html";
+    } else {
+        location.href = "./login.html";
+    }
 }
 
 const userPage2 = () => {
