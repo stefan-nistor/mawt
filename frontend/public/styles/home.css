@@ -1,15 +1,22 @@
 .mainframe {
     background-color: #0f39617e;
+    background-image: url("../../diagrams/backgr3.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 50% 0;
+
     max-height: 40em;
     font-family: 'Rubik';
     letter-spacing: 2px;
 }
 
 .title-mainframe {
+    font-size: 2.5em;
     font-family: 'Rubik';
 }
 
 .hidro-list {
+    width: 90%;
     overflow: auto;
     display: inline-block;
     flex-direction: column;

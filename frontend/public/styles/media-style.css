@@ -26,9 +26,9 @@
         width: 0%;
         visibility: hidden;
     }
-}
-
-@media screen and (min-device-width: 321px) and (max-device-width: 499px) {
+  }
+  
+  @media screen and (min-device-width: 321px) and (max-device-width: 499px) {
     .meniu {
         width: 100%;
     }
@@ -43,18 +43,16 @@
         top: 10px;
         width: 90%;
     }
-    .configs {
-        width: 20em;
-    }
+    
     .user {
         width: 20em;
     }
     .user>button>a {
         display: none;
     }
-}
-
-@media screen and (min-device-width: 500px) and (max-device-width: 660px) {
+  }
+  
+  @media screen and (min-device-width: 500px) and (max-device-width: 660px) {
     .meniu {
         width: 100%;
     }
@@ -68,7 +66,10 @@
     .mainframe {
         top: 10px;
     }
-    .configs {
-        width: 20em;
-    }
+    .user {
+      width: 20em;
+  }
+    .user>button>a {
+      display: none;
+  }
 }

@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link erl="stylesheet" href="../public/styles/media-style.css">
+    <link rel="stylesheet" href="../public/styles/media-style.css">
     <link rel="stylesheet" href="../public/styles/menu-title.css">
-    <link rel="stylesheet" href="../public/styles/waves.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
     <link rel="stylesheet" href="../public/styles/map-page.css">
+    <link rel="stylesheet" href="../public/styles/waves.css">
 
 
 </head>
@@ -25,9 +26,11 @@
 
         <div class="config-buttons">
             <div class="user">
+
                 <button title="Config1"><a>Config</a></button>
                 <button title="Config2"><img src="../diagrams/statistics.png"><a>Statistics</a></button>
                 <button onclick="userPage()"> <img src="../diagrams/userIcon.png"><a>User</a></button>
+
             </div>
         </div>
 
@@ -43,11 +46,19 @@
                 </div>
             </div>
             <div id="main" class="mainframe">
-                <div class="title-mainframe">Harta
-
-
+                <div class="title-mainframe">MAP
                 </div>
 
+                <input type="text" name="hidroOnMap" id="hidroInput" onkeyup="myFunction()" placeholder="Search for names.." onblur="dissapear()">
+                <ul id="dropdownHidro">
+                  
+                </ul>
+
+                <div id="map">
+                </div>
+
+
+                
             </div>
         </div>
 
@@ -73,8 +84,13 @@
     <script src="../public/scripts/meniu.js"></script>
     <script src="../public/scripts/button-functions.js"></script>
     <script src="../public/scripts/info-user.js"></script>
-    <script src="../public/scripts/map.page.js"></script>
-
+    <script type="module" src="../public/scripts/initialiseSearchBar.js"></script>
+    
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../public/scripts/searchBarMapPage.js"></script>
+    <script type="module" src="../public/scripts/map.page.js"></script>
+   
 
 </body>
 
