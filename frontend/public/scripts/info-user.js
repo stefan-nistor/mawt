@@ -71,8 +71,8 @@ const addEmailText = async() => {
     }
 
     const emailText = document.getElementById("emailText");
-    emailText.innerText += ' ';
-    emailText.innerText += user.email;
+    emailText.textContent += ' ';
+    emailText.textContent += user.email;
 }
 
 addEmailText();
