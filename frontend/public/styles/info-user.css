@@ -17,8 +17,8 @@
     display: flex;
     width: 90%;
     margin-top: 10%;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
     font-family: 'Rubik';
     font-weight: bolder;
@@ -38,7 +38,7 @@
     background-color: #659dbd;
     padding: 3%;
     width: 80%;
-    margin: 7% 0;
+    margin: 5% 0;
     color: #f5edf0;
     border-style: none;
     border-radius: 5%;
@@ -73,10 +73,13 @@
     background-color: #dee4eb3d;
     margin-top: 10%;
     border-radius: 5%;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 30%;
-    height: 60%;
+    height: 30%;
     padding: .5em 1.5em;
+    margin: 3em 0em;
     font-size: small;
     color: #9dc3d8;
     font-family: 'Overpass';

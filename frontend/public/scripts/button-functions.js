@@ -1,11 +1,7 @@
 const userPage = () => {
-    //aici ma gandeam ca sa pot vedea userul mai intai sa faca o verificare daca este conectat
-    //daca nu este conectat sa ma duca pe pagina de login 
-    // si daca e conectat sa ma duca pe pagina unde sa mi vad datele si sa pot schimba datele
+    const authToken = sessionStorage.getItem("JWT_TOKEN");
 
-    var user = "";
-    console.log("useru: " + user);
-    if (user.length > 1) {
+    if (authToken != null) {
         location.href = "./info-user.html";
     } else {
         location.href = "./login.html";

@@ -1,22 +1,31 @@
-let user;
+import { BASE_URL } from "./constants.js";
+
+const authToken = sessionStorage.getItem("JWT_TOKEN");
+
+if (authToken == null) {
+    location.href = "./login.html"
+}
+
+let email;
 let password;
 const regex = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-var verifyUser;
+var verifyEmail;
 
 const getUser = () => {
-    user = document.querySelector("#username").value;
-    verifyUser = regex.exec(user);
-    console.log(verifyUser);
+    email = document.querySelector("#email").value;
+    verifyEmail = regex.exec(email);
+    return email;
 }
 
 const getPassword = () => {
     password = document.querySelector("#password").value;
-    console.log(password);
+    return password;
 }
 
 const checkIfCompleted = () => {
-
-    if (verifyUser != null && password.length > 7) {
+    getUser();
+    getPassword();
+    if (verifyEmail != null && password.length > 7) {
         location.href = "./index.html";
     } else {
 
@@ -27,7 +36,7 @@ const checkIfCompleted = () => {
                 `<span style="color: red; font-size: x-small "> password must be at least 8 characters</span>`,
             );
         }
-        if (verifyUser == null) {
+        if (verifyEmail == null) {
             const container = document.getElementById("fieldsMain");
             container.insertAdjacentHTML(
                 'afterbegin',
@@ -37,3 +46,27 @@ const checkIfCompleted = () => {
 
     }
 }
+
+const getCurrentUser = (token) => {
+    try {
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+const updateBtn = document.getElementById("updateBtn");
+updateBtn.addEventListener('click', () => {
+
+});
+
+const deleteBtn = document.getElementById("deleteBtn");
+deleteBtn.addEventListener('click', () => {
+
+});
+
+const logoutBtn = document.getElementById("logoutBtn");
+logoutBtn.addEventListener('click', () => {
+    sessionStorage.removeItem("JWT_TOKEN");
+    location.href = "./login.html";
+})

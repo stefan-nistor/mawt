@@ -1,5 +1,6 @@
 var { ObjectId } = require('mongodb')
 var { checkAuth } = require('../auth/checkAuth')
+const jwtDecode = require('jwt-decode')
 
 module.exports.getAll = async(req, res) => {
     if (!checkAuth(req, res)) {
@@ -137,6 +138,45 @@ module.exports.getByEmail = async(req, res) => {
             res.statusCode = 404
             res.setHeader('Content-type', 'application/json')
             res.write(JSON.stringify({ success: false, message: 'no user with this email' }))
+            res.end()
+        }
+    } catch (e) {
+        console.log(e)
+        res.statusCode = 500
+        res.setHeader('Content-type', 'application/json')
+        res.write(JSON.stringify({ success: false, message: 'Internal Server error!' }))
+        res.end()
+    }
+}
+
+module.exports.getForToken = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
+
+    try {
+        const token = req.headers.authorization.split(' ')[1]
+        const userFromToken = await jwtDecode(token)
+
+        if (userFromToken) {
+            const user = await req.db.User.findOne({ email: userFromToken.email });
+            if (user) {
+                res.statusCode = 200
+                res.setHeader('Content-type', 'application/json')
+                res.write(JSON.stringify({ success: true, user, message: 'OK' }))
+                res.end()
+            } else {
+                res.statusCode = 404
+                res.setHeader('Content-type', 'application/json')
+                res.write(JSON.stringify({ success: false, message: 'user not found' }))
+                res.end()
+            }
+
+
+        } else {
+            res.statusCode = 404
+            res.setHeader('Content-type', 'application/json')
+            res.write(JSON.stringify({ success: false, message: 'error decoding token' }))
             res.end()
         }
     } catch (e) {

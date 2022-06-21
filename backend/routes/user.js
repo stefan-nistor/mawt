@@ -8,5 +8,6 @@ router.post('', userController.postMethod)
 router.put('/:id', userController.updateUser)
 router.delete('/:id', userController.deleteUser)
 router.get('/email', userController.getByEmail)
+router.get('/jwt', userController.getForToken)
 
 module.exports = router

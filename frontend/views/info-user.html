@@ -31,29 +31,30 @@
                 <div class="title-mainframe">
                     <div class="current-info">
                         <div class="text-before"> Your account info </div>
-                        <br>Email:<br> Password:
+                        <br>Email:
                     </div>
                     <div id="fieldsMain" class="fields">CHANGE YOUR DETAILS
 
-                        <input id="username" type="text" placeholder="new email" onblur="getUser()">
-                        <input id="password" type="password" placeholder="new password(8 characters minimum)" onblur="getPassword()">
-                        <input type="button" value="DELETE ACCOUNT">
-                        <input type="button" value="DISCONNECT" onclick="checkIfCompleted()">
+                        <input id="email" type="text" placeholder="new email">
+                        <input id="password" type="password" placeholder="new password(8 characters minimum)">
+                        <input type="button" name="updateBtn" id="updateBtn" value="UPDATE ACCOUNT">
+                        <input type="button" name="deleteBtn" id="deleteBtn" style="background-color: red;" value="DELETE ACCOUNT">
+                        <input type="button" name="logoutBtn" id="logoutBtn" value=" DISCONNECT ">
 
                     </div>
                 </div>
 
             </div>
 
-            <div class="waveWrapper waveAnimation">
-                <div class="waveWrapperInner bgTop">
-                    <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+            <div class="waveWrapper waveAnimation ">
+                <div class="waveWrapperInner bgTop ">
+                    <div class="wave waveTop " style="background-image: url( 'http://front-end-noobs.com/jecko/img/wave-top.png') "></div>
                 </div>
-                <div class="waveWrapperInner bgMiddle">
-                    <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+                <div class="waveWrapperInner bgMiddle ">
+                    <div class="wave waveMiddle " style="background-image: url( 'http://front-end-noobs.com/jecko/img/wave-mid.png') "></div>
                 </div>
-                <div class="waveWrapperInner bgBottom">
-                    <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+                <div class="waveWrapperInner bgBottom ">
+                    <div class="wave waveBottom " style="background-image: url( 'http://front-end-noobs.com/jecko/img/wave-bot.png') "></div>
                 </div>
             </div>
 
@@ -62,9 +63,10 @@
     </div>
 
 
-    <script src="../public/scripts/button-functions.js"></script>
-    <script src="../public/scripts/meniu.js"></script>
-    <script src="../public/scripts/info-user.js"></script>
+    <script src="../public/scripts/button-functions.js "></script>
+    <script src="../public/scripts/meniu.js "></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="../public/scripts/info-user.js "></script>
 
 
 </body>
