@@ -64,8 +64,10 @@ module.exports.updateUser = async(req, res) => {
         id = id.padStart(12 - id.length + 1, '0')
         const user = await req.db.User.findOne({ _id: id })
 
+        console.log(req.body)
+        console.log(user != null)
         if (user) {
-            const userUpdate = await req.db.User.updateOne({ _id: id }, { $set: { email: req.body.email } })
+            const userUpdate = await req.db.User.updateOne({ _id: id }, { $set: { email: req.body.email } }, { upsert: true })
 
             res.statusCode = 205
             res.setHeader('Content-type', 'application/json')
