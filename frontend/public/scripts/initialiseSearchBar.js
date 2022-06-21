@@ -55,11 +55,13 @@ const hidropowerList = async() => {
 
 hidropowerList();
 
-const getLat1 =() =>{
-    
-    return `${lat1}`;
+const getLat1 = async() =>{
+    const lat2 = await getHidropowerPlantList();
+    //console.log(lat1)
+    return lat1;
 }
-const getLon1 =() =>{
+const getLon1 = async() =>{
+    const hidroplants = await getHidropowerPlantList();
     return `${lon1}`;
 }
 

@@ -1,16 +1,60 @@
 .mainframe {
     background-color: #0f39617e;
+    
+    background-image: url("../../diagrams/backgr3.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 50% 0;
+   
     max-height: 40em;
     font-family: 'Rubik';
     letter-spacing: 2px;
+    display: flex;
+    
 }
 
 .title-mainframe {
+    
     font-family: 'Rubik';
 }
+#nameOfHidro{
+    font-size: 3em;
+}
 
-.details-hidro {
+.details-hidro1 {
+    margin-left: 15px;
+  
     font-family: 'Overpass';
     color: #f5edf0;
+   
+}
+.details-hidro2 {
+    margin-left: auto;
+    margin-right: 0px;
+   
+    font-family: 'Overpass';
+    color: #f5edf0;
+  
+}
+.subtitle2{
+    font-size: smaller;
+    color: #f5edf0;
+    font-family: 'Rubik';
+    
+}
+.subtitle1{
+    font-size: 1.5em;
+    color:#9bd58c;
+    font-family: 'Rubik';
+    
+}
+.resume1{color: #f5edf0;font-family: 'Overpass';}
+.resume2{color: #f5edf0;font-family: 'Overpass';font-size: 1em; font-weight: bold;}
+
+.details{
     width: 80%;
+    align-items:center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
 }

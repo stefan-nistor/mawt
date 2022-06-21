@@ -1,11 +1,18 @@
 .mainframe {
     background-color: #0f39617e;
+    background-image: url("../../diagrams/backgr3.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 50% 0;
+
+
     max-height: 40em;
     font-family: 'Rubik';
     letter-spacing: 2px;
 }
 
 .title-mainframe {
+  font-size: 2em;
     font-family: 'Rubik';
 }
 .mainframe>input{
