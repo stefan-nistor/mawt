@@ -1,0 +1,82 @@
+.mainframe{
+    width: 80%;
+}
+.title-mainframe {
+    font-size: 3em;
+    font-family: 'Rubik';
+}
+.details-hidro1 {
+    
+  
+    font-family: 'Overpass';
+    color: #f5edf0;
+   
+}
+
+.details{
+    width: 80%;
+    align-items:center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#clockdiv{
+    width: 100%;
+    font-family: 'Rubik';
+    color: #9bd58c;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 1.5em;
+    
+  }
+  
+  #clockdiv > div{
+    width: 22%;
+    border-radius: 3px;
+    background: #A0BEF8;
+    display: inline-block;
+  }
+  
+  #clockdiv div > span{
+    width: 85%;
+    margin-top: 7px;
+    border-radius: 3px;
+    background: #B5F0F0;
+    display: inline-block;
+  }
+  
+  .smalltext{
+    font-family: 'Overpass';
+    color:#f5edf0;
+    padding-top: 5px;
+    font-size: 16px;
+  }
+
+  @media screen and (max-device-width: 320px) {
+    .mainframe {
+        top: 15px;
+        width: 70%;
+    }
+    .title-mainframe{
+        font-size: 2em;
+    }
+    
+    .waveWrapper .waveWrapperInner .wave {
+        width: 0%;
+        visibility: hidden;
+    }
+  }
+  
+  @media screen and (min-device-width: 321px) and (max-device-width: 499px) {
+   
+    .mainframe {
+        top: 10px;
+        width: 90%;
+    }
+    .title-mainframe{
+        font-size: 2em;
+    }
+    
+  }

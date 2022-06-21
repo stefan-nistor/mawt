@@ -96,6 +96,7 @@ body {
 
 .meniu>.meniuBoxes>input[type=text] {
     background-color: #28517a;
+    background-image: linear-gradient(to right, #A0BEF8, #B5F0F0);
     color: bisque;
     margin: 1.5em 0;
     padding: 1em 1em;
@@ -142,8 +143,10 @@ body {
     top: 0;
     flex-grow: 3;
     display: flex;
+    align-content: center;
+    justify-content: center;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .user>button>img {
@@ -155,23 +158,25 @@ body {
 
 .user>button {
     top: 0;
-    margin: 0.5em;
+    width: 33%;
+    margin: 0.1em;
     display: block;
     position: relative;
-    margin-left: 20%;
     padding-left: 2%;
     padding-right: 2%;
-    /* padding-top: 2%; */
+    padding-top: 5px;
+    padding-bottom: 5px;
     color: #f5edf0;
     font-size: medium;
     font-family: 'Overpass';
     background-color: #659dbd;
     border: none;
-    /* border-style: solid; */
-    /* border-color: #76b865; */
     box-shadow: 0 0 30px rgb(53, 99, 148);
-    border-radius: 12%;
-    /* letter-spacing: 1px; */
+    border-radius: 1%;
+}
+.user>button>a{
+    text-decoration: none;
+    color:#DEE4EB;
 }
 
 .user>button:hover {
@@ -195,13 +200,16 @@ body {
     justify-content: center;
     flex-direction: column;
     border-radius: 5%;
-    background-color: #0f3961d1;
+    background-color: #0f39617e;
+    background-image: url("../../diagrams/backgr3.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 50% 0;
     font-family: 'Rubik';
 }
 
 .title-mainframe {
     margin: 20px;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
     font-size: larger;
     font-family: 'Rubik';

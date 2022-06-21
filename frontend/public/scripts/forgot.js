@@ -1,6 +1,6 @@
 var email = "";
 var regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-var verifyEmail;
+var verifyEmail="";
 
 
 const getEmail = () => {
@@ -44,7 +44,9 @@ const checkIfCompleted = () => {
 
         document.body.insertBefore(newDiv, page);
 
-        setTimeout(8000);
+       setTimeout(function() {
+        location.href = "./home.html";
+          }, 8000);
     } else {
         const container = document.getElementById("fieldsMain");
         container.insertAdjacentHTML(
@@ -57,6 +59,3 @@ const checkIfCompleted = () => {
 const redirect = () => {
     location.href = "./home.html";
 }
-setTimeout(function() {
-    location.href = "./home.html";
-}, 8000);

@@ -15,8 +15,8 @@
 
 .title-mainframe {
     display: flex;
-    width: 90%;
-    margin-top: 10%;
+    width: 100%;
+    margin: auto;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
@@ -28,7 +28,7 @@
 .fields {
     z-index: 20;
     display: flex;
-    width: 50%;
+    width: 70%;
     flex-direction: column;
     align-items: center;
 }
@@ -38,7 +38,7 @@
     background-color: #659dbd;
     padding: 3%;
     width: 80%;
-    margin: 4% 0;
+    margin: 2% 0;
     color: #f5edf0;
     border-style: none;
     border-radius: 5%;
@@ -76,7 +76,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 30%;
+    width: 60%;
     height: 30%;
     padding: .5em 1.5em;
     margin-bottom: 3em;

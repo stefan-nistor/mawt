@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../public/styles/media-style.css">
     <link rel="stylesheet" href="../public/styles/menu-title.css">
     <link rel="stylesheet" href="../public/styles/waves.css">
-    <link rel="stylesheet" href="../public/styles/home.css">
+    <link rel="stylesheet" href="../public/styles/about-page.css">
 
 </head>
 
@@ -32,24 +32,38 @@
             </div>
         </div>
 
-        <span style="z-index: 20;font-size:30px;cursor:pointer; position: absolute;top: 10px;" onclick="openNav()">&#9776; </span>
+       
         <div class="flex-container">
-            <div id="menu" class="meniu">
-                <div id="boxes-menu" class="meniuBoxes">
-                    <input type="text" name="searchBar" class="searchBar" placeholder="Search...">
-                    <input type="button" value="HOME" onclick="getHomePage()">
-                    <input type="button" value="MAP" onclick="getMapPage()">
-                    <input type="button" value="MY HIDROPOWER PLANT">
-
-                </div>
-            </div>
+           
             <div id="main" class="mainframe">
-                <div class="title-mainframe">HIDROPOWER PLANTS
+                <div class="title-mainframe"> World water day
+                </div>
+                <div id="details" class="details">
+                    <div id="detailsHidro1" class="details-hidro1">
+                        World Water Day is held annually on <b><b>22 March</b></b> as a means of focusing attention on the importance
+                        of freshwater and advocating form the sustainable management of freshwater
+                        resources.
+
+                    </div>
+                    <div id="clockdiv">
+                        <div>
+                          <span id="day" class="days"></span>
+                          <div class="smalltext">Days</div>
+                        </div>
+                        <div>
+                          <span id="hour" class="hours"></span>
+                          <div class="smalltext">Hours</div>
+                        </div>
+                        <div>
+                          <span id="minutes" class="minutes"></span>
+                          <div class="smalltext">Minutes</div>
+                        </div>
+                        <div>
+                          <span id="seconds" class="seconds"></span>
+                          <div class="smalltext">Seconds</div>
+                        </div>
                 </div>
 
-                <div class="hidro-list">
-
-                </div>
             </div>
         </div>
 
@@ -76,8 +90,7 @@
     <script src="../public/scripts/button-functions.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="../public/scripts/global-events.js"></script>
-    <script type="module" src="../public/scripts/home.js"></script>
-
+    <script src="../public/scripts/aboutPage.js"></script>
 
 </body>
 
