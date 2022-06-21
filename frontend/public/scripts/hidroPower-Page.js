@@ -62,8 +62,8 @@ const hidropowerList = async() => {
                         <div class="subtitle2"> River </div>
                         <div class="resume2"> ${river}</div>
                         <div class="subtitle1"> Location </div>
-                        <div class="resume1"> ${latitude}</div>
-                        <div class="resume1"> ${longitude}</div>
+                        <div class="resume1">lat: ${latitude}</div>
+                        <div class="resume1">lon: ${longitude}</div>
                         `;
                 detailsList1.innerHTML += item;
             

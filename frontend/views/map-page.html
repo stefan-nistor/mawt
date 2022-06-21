@@ -38,7 +38,10 @@
         <div class="flex-container">
             <div id="menu" class="meniu">
                 <div id="boxes-menu" class="meniuBoxes">
-                    <input type="text" name="searchBar" class="searchBar" placeholder="Search...">
+                    <input type="text" name="searchBar" id="searchBar" class="searchBar" onclick="showDropdown()" onkeyup="searchBar()" placeholder="Search...">
+                    <div id="dropdown" class="dropdown-content">
+                       
+                    </div>
                     <input type="button" value="HOME" onclick="getHomePage()">
                     <input type="button" value="MAP" onclick="getMapPage()">
                     <input type="button" value="MY HIDROPOWER PLANT">
@@ -83,14 +86,15 @@
 
     <script src="../public/scripts/meniu.js"></script>
     <script src="../public/scripts/button-functions.js"></script>
-    <script type="module" src="../public/scripts/initialiseSearchBar.js"></script>
-
+    <script src="../public/scripts/dropdownMenu.js"></script>
+    <script src="../public/scripts/searchBarMenu.js"></script>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../public/scripts/searchBarMapPage.js"></script>
     <script type="module" src="../public/scripts/global-events.js"></script>
     <script type="module" src="../public/scripts/map.page.js"></script>
-
+    <script type="module" src="../public/scripts/initialiseSearchBar.js"></script>
+    <script type="module" src="../public/scripts/initialiseDropMenu.js"></script>
 
 </body>
 

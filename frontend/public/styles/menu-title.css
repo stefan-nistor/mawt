@@ -108,6 +108,32 @@ body {
 .meniu>.meniuBoxes>input[type=text]:active:hover {
     box-shadow: 0 0 30px #B5F0F0;
 }
+.dropdown-content {
+    margin-top: -27px;
+    width: 16.5em;
+    display: none;
+    position: absolute;
+    background-color: #a0bdf8c6;
+    background-image: linear-gradient(#a0bdf86e, #b5f0f048);
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    max-height: 120px;
+}
+
+.dropdown-content>a:hover{
+    background-color: #B5F0F0;
+}
+.dropdown-content>a {
+    color: #0f3961;
+    font-family: 'Overpass';
+    font-weight: bold ;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.show {display: block;}
 
 .meniuBoxes {
     transition: 0.3s;
