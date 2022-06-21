@@ -218,7 +218,8 @@ module.exports.getByName = async(req, res) => {
 
     try {
         const name = req.params.name
-        const hidroplant = await req.db.Hidroplant.findOne({ name: name })
+        const nameRegEx = new RegExp(name, "i")
+        const hidroplant = await req.db.Hidroplant.findOne({ name: nameRegEx })
 
         if (hidroplant) {
             res.statusCode = 200
