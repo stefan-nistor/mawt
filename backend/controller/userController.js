@@ -58,6 +58,14 @@ module.exports.updateUser = async(req, res) => {
     }
 
     try {
+        const userForEmail = await req.db.User.findOne({ email: req.body.email })
+        if (userForEmail) {
+            res.statusCode = 403
+            res.write(JSON.stringify({ success: false, message: 'email has been taken' }))
+            res.end()
+            return;
+        }
+
         let arr = []
         arr = req.url.split('/')
         let id = arr[arr.length - 1]
