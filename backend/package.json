@@ -16,6 +16,7 @@
         "mongodb": "^4.7.0",
         "mongoose": "^6.3.6",
         "node-jose": "^2.1.1",
+        "nodemailer": "^6.7.5",
         "pg": "^8.7.3",
         "rss-generator": "^0.0.3",
         "sequelize": "^6.20.1",
