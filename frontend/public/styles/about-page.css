@@ -1,12 +1,26 @@
-.mainframe{
-    width: 80%;
+.body{
+  overflow: hidden;
 }
+.mainframe{
+  margin-top: 30px;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+   
+    
+}
+.flex-container{
+  margin: 0 auto;
+  width: 60%;
+  height: 70%;
+}
+
 .title-mainframe {
+  margin-top: 10%;
     font-size: 3em;
     font-family: 'Rubik';
 }
 .details-hidro1 {
-    
   
     font-family: 'Overpass';
     color: #f5edf0;
@@ -14,11 +28,61 @@
 }
 
 .details{
+ 
     width: 80%;
+    margin: 20px;
     align-items:center;
     justify-content: center;
-    display: flex;
-    flex-direction: column;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.scrollDown{
+  margin: 20% auto;
+  align-content: flex-end;
+  
+}
+.scrollDown>button{
+  
+  background-color: #9bd58c;
+  padding: 15px;
+  border-radius: 50%;
+}
+.scrollDown>button>img{
+  width: 30px;
+  height: 30px;
+}
+.info{
+  margin: 200px auto;
+  
+}
+.subtitle-info{
+  font-family: 'Rubik';
+  font-size: 6vw;
+  color:#f5edf0;
+}
+.info>.cover-image{
+  height: 1vw;
+}
+.cover-image>img{
+
+  /* Center and scale the image nicely */
+  height: 25vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.more-info{
+  margin-top: 25vw;
+  font-family: 'Overpass';
+  font-size: 15px;
+  color: #f5edf0;
+}
+.more-info>a{
+  text-decoration: none;
+  color: #9bd58c;
+  font-weight: bolder;
 }
 
 #clockdiv{
@@ -28,7 +92,7 @@
     display: inline-block;
     font-weight: 100;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 3vw;
     
   }
   
@@ -51,7 +115,7 @@
     font-family: 'Overpass';
     color:#f5edf0;
     padding-top: 5px;
-    font-size: 16px;
+    font-size: 2vw;
   }
 
   @media screen and (max-device-width: 320px) {
@@ -75,6 +139,23 @@
         top: 10px;
         width: 90%;
     }
+    
+    .title-mainframe{
+        font-size: 2em;
+    }
+    
+  }
+  @media screen and (max-device-width: 320px) {
+   
+    .mainframe {
+        top: 10px;
+        width: 90%;
+    }
+    .flex-container{
+      max-width: 100%;
+      margin-left: 0;
+    }
+    
     .title-mainframe{
         font-size: 2em;
     }

@@ -23,3 +23,8 @@ var x = setInterval(function() {
     document.getElementById("clockdiv").innerHTML = "EXPIRED";
   }
 }, 1000);
+
+
+function scrollWin() {
+  document.getElementById("details").scrollBy(0, 600);
+}
