@@ -1,6 +1,6 @@
 const { isNullOrUndefined } = require('util')
 const { composeDatabase, collectParameters, isAuth, collectBody } = require('../middlewares/payloadValidation')
-const anythingButSlashRegex = '([0-9]|[a-z]|[A-Z])+'
+const anythingButSlashRegex = '([0-9]|[a-z]|[A-Z]|[\.-])+'
 const { cors_headers } = require('./constants')
 const { setHeadersForCors } = require('./util-methods');
 
@@ -118,8 +118,8 @@ class Router {
                 routeKey.split('/').forEach((val, idx) => {
                     if (idx != 0) {
                         if (val.startsWith(':')) {
-                            pathParams(val.slice[1]) = null
-                            urlRegex = `${urlRegex}/(?<${val.slice[1]}>${anythingButSlashRegex})`
+                            pathParams[val.slice(1)] = null
+                            urlRegex = `${urlRegex}/(?<${val.slice(1)}>${anythingButSlashRegex})`
                         } else {
                             urlRegex = `${urlRegex}/${val}`
                         }
