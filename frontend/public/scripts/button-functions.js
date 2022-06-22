@@ -19,3 +19,6 @@ const getMapPage = () => {
 const getHomePage = () => {
     location.href = "./home.html"
 }
+const getMyHidro = () => {
+    location.href = "./myHidro-Page.html"
+}

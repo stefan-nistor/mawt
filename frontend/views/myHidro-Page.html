@@ -46,21 +46,31 @@
                     <div class="cover-image"><img src="../diagrams/hidrophoto6.png"> 
                     </div>
 
-                    <label for="country"> Give us some pieces of information about your hidropower</label><br>
+                    <label for="count"> Give us some pieces of information about your hidropower</label><br>
                     <div id="fieldsMain" class="fields">
                         <label for="country"> Country </label><br>
-                        <input id="country" type="text" placeholder="Country"><br>
+                        <input id="country" type="text" placeholder="Country" onblur="getCountry()" ><br>
                         <label for="lake"> Lake </label><br>
-                        <input id="lake" type="text" placeholder="Lake"><br>
+                        <input id="lake" type="text" placeholder="Lake" onblur="getLake()"><br>
                         <label for="river"> River </label><br>
-                        <input id="river" type="text" placeholder="River"><br>
+                        <input id="river" type="text" placeholder="River" onblur="getRiver()"><br>
                         <label for="city"> Near city </label><br>
-                        <input id="city" type="text" placeholder="city"><br>
+                        <input id="city" type="text" placeholder="city" onblur="getCity()"><br>
                         <label for="location"> Location on map </label><br>
-                        <input id="lat" type="text" placeholder="latitude" onkeyup="checkLat()"><br>
-                        <input id="long" type="text" placeholder="longitude" onkeyup="checkLon()"><br>
+                        <div class="popup" onclick="myFunctionLat()">
+                           <span class="popuptext" id="myPopup1">Latitude must be in range of (-90,90)</span>
+                            <input id="lat" type="text" placeholder="latitude" onblur="getLat()" ><br>
+                          </div>
+
+                          <div class="popup" onclick="myFunctionLong()">
+                            <span class="popuptext" id="myPopup2">Longitude must be in range of (-180,180)</span>
+                            <input id="long" type="text" placeholder="longitude" onblur="getLong()"><br>
+                           </div>  
                         
-                        <input type="button" id="generateBtn" value="GENERATE"><br>
+                        
+                        
+                        <span id="textError">You still have uncompleted fields</span>
+                        <input type="button" id="generateBtn" value="GENERATE" onclick="checkValid()"><br>
                         
                 </div>
                
@@ -93,7 +103,7 @@
     <script src="../public/scripts/button-functions.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="../public/scripts/global-events.js"></script>
-    <script src="../public/scripts/aboutPage.js"></script>
+    <script src="../public/scripts/myHidroPage.js"></script>
 
 </body>
 
