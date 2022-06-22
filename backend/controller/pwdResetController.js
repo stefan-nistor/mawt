@@ -4,11 +4,8 @@ const constants = require('../utils/constants')
 const crypto = require('crypto')
 const nodemailer = require('nodemailer')
 
-var secret;
-
 module.exports.forgotPassword = async(req, res) => {
     try {
-        secret = crypto.randomUUID()
         const user = await req.db.User.findOne({ email: req.body.email })
         if (!user) {
             res.statusCode = 401
@@ -18,6 +15,7 @@ module.exports.forgotPassword = async(req, res) => {
             return
         }
 
+        const secret = String(user._id)
         const payload = {
             email: user.email,
             id: user._id,
@@ -58,7 +56,7 @@ module.exports.forgotPassword = async(req, res) => {
     }
 }
 
-const verifyResetPassword = (req, res) => {
+const verifyResetPassword = (req, res, secret) => {
     try {
         let arr = []
         arr = req.url.split('/')
@@ -85,12 +83,7 @@ const verifyResetPassword = (req, res) => {
 }
 
 module.exports.resetPassword = async(req, res) => {
-    if (!verifyResetPassword(req, res)) {
-        return
-    }
-
     try {
-        console.log(req)
         let arr = []
         arr = req.url.split('/')
         let token = arr[arr.length - 1]
@@ -111,6 +104,10 @@ module.exports.resetPassword = async(req, res) => {
             res.setHeader('Content-type', 'application/json')
             res.write(JSON.stringify({ success: false, message: 'no user for this id' }))
             res.end()
+            return
+        }
+
+        if (!verifyResetPassword(req, res, String(user._id))) {
             return
         }
 
