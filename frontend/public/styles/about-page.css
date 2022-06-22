@@ -118,6 +118,27 @@
     font-size: 2vw;
   }
 
+
+  ::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* / Track / */
+
+::-webkit-scrollbar-track {
+    background-image: linear-gradient(to right, #23252b70, #23252bae);
+}
+
+
+/* / Handle */
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-image: linear-gradient( #B5F0F0, #A0BEF8);
+    outline: 1px solid #23252B;
+}
+
   @media screen and (max-device-width: 320px) {
     .mainframe {
         top: 15px;
@@ -137,9 +158,14 @@
    
     .mainframe {
         top: 10px;
-        width: 90%;
+        width: 100%;
     }
     
+    .flex-container{
+      max-width: 100%;
+      
+    }
+
     .title-mainframe{
         font-size: 2em;
     }
