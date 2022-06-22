@@ -2,38 +2,45 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <title>Forgot Password</title>
+    <title>Reset password</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="../public/styles/media-style.css">
     <link rel="stylesheet" href="../public/styles/menu-title.css">
+    <link rel="stylesheet" href="../public/styles/media-style.css">
     <link rel="stylesheet" href="../public/styles/waves.css">
-    <link rel="stylesheet" href="../public/styles/forgot.css">
+    <link rel="stylesheet" href="../public/styles/register.css">
 </head>
 
 <body>
 
-    <div id="pageFull" class="page">
+    <div class="page">
         <div class="title">
             <div class="textTitlu">MANAGING WATER</a>
             </div>
         </div>
 
         <div class="flex-container">
-            <div id="main" class="mainframe">
-                <div class="title-mainframe">RESET <br> YOUR <br> PASSWORD
-                    <div id="fieldsMain" class="fields">
-                        <input id="email" type="text" placeholder="email">
-                        <div class="info"> We will send you an email with your login info </div>
-                        <input type="button" name="forgotBtn" id="forgotBtn" value="SEND">
 
+            <div id="main" class="mainframe">
+                <div class="title-mainframe">RESET PASSWORD
+                    <div id="textError">
+                        <span id="textError1" style="color: red; font-size: x-small; display:none; "> password must be at least 8 characters</span>
+                        <span id="textError2" style="color: red; font-size: x-small; display:none; "> please insert the same password</span>
+                    </div>
+                    <div id="fieldsMain" class="fields">
+                        <label for="password1"> Password </label><br>
+                        <input id="password1" type="password" placeholder="password(8 characters minimum)"><br>
+                        <label for="password1"> Repeat Password </label><br>
+                        <input id="password2" type="password" placeholder="password"><br>
+
+                        <input type="button" name="resetBtn" id="resetBtn" value="RESET PASSWORD">
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="waves" class="waveWrapper waveAnimation">
+        <div class="waveWrapper waveAnimation">
             <div class="waveWrapperInner bgTop">
                 <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
             </div>
@@ -44,11 +51,14 @@
                 <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
             </div>
         </div>
+
+
     </div>
 
+    <script src="../public/scripts/meniu.js"></script>
     <script src="../public/scripts/button-functions.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="module" src="../public/scripts/forgot.js"></script>
+    <script type="module" src="../public/scripts/reset.js"></script>
 
 
 </body>

@@ -1,6 +1,7 @@
 const { isNullOrUndefined } = require('util')
 const { composeDatabase, collectParameters, isAuth, collectBody } = require('../middlewares/payloadValidation')
-const anythingButSlashRegex = '([0-9]|[a-z]|[A-Z]|[\.-])+'
+    // const anythingButSlashRegex = '([0-9]|[a-z]|[A-Z]|[\.-_])+'
+const anythingButSlashRegex = '[a-zA-Z0-9-_.]+'
 const { cors_headers } = require('./constants')
 const { setHeadersForCors } = require('./util-methods');
 

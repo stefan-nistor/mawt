@@ -4,6 +4,8 @@ const constants = require('../utils/constants')
 const crypto = require('crypto')
 const nodemailer = require('nodemailer')
 
+var secret;
+
 module.exports.forgotPassword = async(req, res) => {
     try {
         secret = crypto.randomUUID()
@@ -22,7 +24,7 @@ module.exports.forgotPassword = async(req, res) => {
         }
 
         const token = jwt.sign(payload, secret, { expiresIn: '30m' })
-        const link = `http://localhost:5050/reset-password/${token}`
+        const link = `http://127.0.0.1:5500/frontend/views/reset.html?token=${token}`
 
         const userUpdate = await req.db.User.updateOne({ _id: user._id }, { $set: { password_token: token } }, { upsert: true })
 
@@ -62,7 +64,7 @@ const verifyResetPassword = (req, res) => {
         arr = req.url.split('/')
         let token = arr[arr.length - 1]
         try {
-            const payload = jwt.verify(token)
+            const payload = jwt.verify(token, secret)
             return true
         } catch (err) {
             res.statusCode = 401
