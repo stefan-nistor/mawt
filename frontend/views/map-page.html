@@ -52,10 +52,11 @@
                 <div class="title-mainframe">MAP
                 </div>
 
-                <input type="text" name="hidroOnMap" id="hidroInput" onkeyup="myFunction()" placeholder="Search for names.." onblur="dissapear()">
-                <ul id="dropdownHidro">
+                <input type="text" name="hidroOnMap" id="hidroInput" onclick="showDropdownMap()" onkeyup="searchBarMap()" placeholder="Search for names..">
+                <div id="dropdownHidro" class="dropdown-content2">
+                    <!-- <a>hello</a> -->
 
-                </ul>
+                </div>
 
                 <div id="map">
                 </div>
@@ -91,6 +92,7 @@
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../public/scripts/searchBarMapPage.js"></script>
+    <script src="../public/scripts/dropdownMap.js"></script>
     <script type="module" src="../public/scripts/global-events.js"></script>
     <script type="module" src="../public/scripts/map.page.js"></script>
     <script type="module" src="../public/scripts/initialiseSearchBar.js"></script>

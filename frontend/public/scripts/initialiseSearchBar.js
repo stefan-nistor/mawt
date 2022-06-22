@@ -31,27 +31,16 @@ const hidropowerList = async() => {
 
     for (let counter = 0; counter < hidroplants.length; counter++) {
        
-        
-        let item=document.createElement("li");
-        var inputA=document.createElement("a");
-        let name=document.createTextNode(`${hidroplants[counter].name}`);
-       
-    
-        inputA.appendChild(name);
-        item.appendChild(inputA);
-        hidroList.appendChild(item);
 
-        if(localStorage.getItem("hidro")===`${hidroplants[counter].name}`){
-        
-        lat1=`${hidroplants[counter].lat_res}`;
-        lon1=`${hidroplants[counter].long_res}`;
-        
-        localStorage.setItem("lat1",`${hidroplants[counter].lat_res}`);
-        localStorage.setItem("lon1",`${hidroplants[counter].long_res}`);
+        let item = `<a href="./map-page.html?name=${hidroplants[counter].name}&lat=${hidroplants[counter].lat_res}&lon=${hidroplants[counter].long_res}">
+                                    ${hidroplants[counter].name}
+                    </a>`;
+        hidroList.innerHTML += item;
    
     }
-    }
+    
 }
+    
 
 hidropowerList();
 
