@@ -10,6 +10,15 @@ if (authToken == null) {
 let pieChart;
 let barChart;
 
+var ranColor = ["#c5ce62"];
+Chart.defaults.global.defaultFontColor = "#fff";
+
+for (let i = 0; i < 10; i++) {
+  var randomColor = "#" + Math.floor(Math.random() * 19777215).toString(16);
+  ranColor.push(randomColor);
+}
+console.log("culori" + ranColor);
+
 const createBarChart = (data) => {
   let canvasElement = document.getElementById("barChart");
 
@@ -24,7 +33,7 @@ const createBarChart = (data) => {
         {
           label: "Electric capacity",
           data: elecCapVal,
-          backgroundColor: ["#c5ce62", "#c5ce62", "#c5ce62", "#c5ce62"],
+          backgroundColor: ranColor,
           borderColor: ["#f5edf0"],
           borderWidth: 1,
         },
@@ -44,11 +53,12 @@ const createPieChart = (data) => {
     type: "pie",
     data: {
       labels: namesHidro,
+
       datasets: [
         {
           label: "Electric capacity",
           data: elecCapVal,
-          backgroundColor: ["#c5ce62", "#c5ce62", "#c5ce62", "#c5ce62"],
+          backgroundColor: ranColor,
           borderColor: ["#f5edf0"],
           borderWidth: 1,
         },
