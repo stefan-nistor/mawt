@@ -262,3 +262,64 @@ module.exports.getTopNHidroplants = async(req, res) => {
         res.end()
     }
 }
+
+const distanceBetween = (lat1, lat2, lon1, lon2) => {
+
+    // The math module contains a function
+    // named toRadians which converts from
+    // degrees to radians.
+    lon1 = lon1 * Math.PI / 180;
+    lon2 = lon2 * Math.PI / 180;
+    lat1 = lat1 * Math.PI / 180;
+    lat2 = lat2 * Math.PI / 180;
+
+    // Haversine formula
+    let dlon = lon2 - lon1;
+    let dlat = lat2 - lat1;
+    let a = Math.pow(Math.sin(dlat / 2), 2) +
+        Math.cos(lat1) * Math.cos(lat2) *
+        Math.pow(Math.sin(dlon / 2), 2);
+
+    let c = 2 * Math.asin(Math.sqrt(a));
+
+    // Radius of earth in kilometers. Use 3956
+    // for miles
+    let r = 6371;
+
+    // calculate the result
+    return (c * r);
+}
+
+module.exports.getClosestHidroplant = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
+
+    try {
+        const lat = req.params.lat
+        const long = req.params.long
+
+        const hidroplants = await req.db.Hidroplant.find()
+        let closestHidroplant
+        let minDistance = Number.MAX_SAFE_INTEGER
+
+        for (const hidroplant of hidroplants) {
+            let dist = distanceBetween(lat, long, hidroplant.lat_res, hidroplant.long_res)
+            if (dist < minDistance) {
+                closestHidroplant = hidroplant
+                minDistance = dist
+            }
+        }
+
+        res.statusCode = 200
+        res.setHeader('Content-Type', 'application/json')
+        res.write(JSON.stringify({ success: true, closestHidroplant, message: `Retrieved hidroplant ${closestHidroplant.name}` }))
+        res.end()
+    } catch (e) {
+        console.log(e)
+        res.statusCode = 500
+        res.setHeader('Content-type', 'application/json')
+        res.write(JSON.stringify({ success: false, message: 'Internal Server error!' }))
+        res.end()
+    }
+}
