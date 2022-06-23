@@ -1,5 +1,5 @@
 var { ObjectId } = require('mongodb')
-var { checkAuth } = require('../auth/checkAuth')
+var { checkAuth, checkIfAdmin } = require('../auth/checkAuth')
 
 module.exports.getAll = async(req, res) => {
     if (!checkAuth(req, res)) {
@@ -104,7 +104,7 @@ module.exports.createHidroplant = async(req, res) => {
 }
 
 module.exports.updateHidroplant = async(req, res) => {
-    if (!checkAuth(req, res)) {
+    if (!checkAuth(req, res) || !(await checkIfAdmin(req, res))) {
         return
     }
 
@@ -178,7 +178,7 @@ module.exports.updateHidroplant = async(req, res) => {
 }
 
 module.exports.deleteHidroplant = async(req, res) => {
-    if (!checkAuth(req, res)) {
+    if (!checkAuth(req, res) || !(await checkIfAdmin(req, res))) {
         return
     }
 
