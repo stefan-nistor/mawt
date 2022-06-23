@@ -27,67 +27,67 @@
         <div class="config-buttons">
             <div class="user">
 
-                <button title="Config1" onclick="document.location='./about-page.html'" ><img src="../diagrams/calendar.png"><a >About</a></button>
-                <button title="Config2"><img src="../diagrams/statistics.png"><a>Statistics</a></button>
+                <button title="Config1" onclick="document.location='./about-page.html'"><img src="../diagrams/calendar.png"><a >About</a></button>
+                <button title="Config2" onclick="document.location='./statistics.html'"><img src="../diagrams/statistics.png"><a>Statistics</a></button>
                 <button onclick="userPage()"> <img src="../diagrams/userIcon.png"><a>User</a></button>
 
             </div>
         </div>
 
-       
+
         <div class="flex-container">
-           
+
             <div id="main" class="mainframe">
-            
+
                 <div id="details" class="details">
                     <div class="subtitle-info">
-                       Top 10 Hidropower Plants from India
-                    </div>
-                    
-                 
-                    <div class="info"> 
-                    
-                    <canvas id="barChart" width="100%" height="80" style="display: block" ></canvas>
-                    <canvas id="pieChart" width="100%" height="80" style="display:none"></canvas>
-                    <button id="changeBtn" name="changeBtn">Change view</button>
-
-                    <div class="cover-image"><img src="../diagrams/hidrophoto6.png"> 
-                    </div>
-
-                
+                        Top 10 Hidropower Plants from India
                     </div>
 
 
+                    <div class="info">
 
+                        <canvas id="barChart" width="100%" height="80" style="display: block"></canvas>
+                        <canvas id="pieChart" width="100%" height="80" style="display:none"></canvas>
+                        <button id="changeBtn" name="changeBtn">Change view</button>
+
+                        <div class="cover-image"><img src="../diagrams/hidrophoto6.png">
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
             </div>
+
+
+
+
+            <div class="waveWrapper waveAnimation">
+                <div class="waveWrapperInner bgTop">
+                    <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+                </div>
+                <div class="waveWrapperInner bgMiddle">
+                    <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+                </div>
+                <div class="waveWrapperInner bgBottom">
+                    <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+                </div>
+            </div>
+
+
+
         </div>
 
+        <script src="../public/scripts/meniu.js"></script>
+        <script src="../public/scripts/button-functions.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-
-
-        <div class="waveWrapper waveAnimation">
-            <div class="waveWrapperInner bgTop">
-                <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
-            </div>
-            <div class="waveWrapperInner bgMiddle">
-                <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
-            </div>
-            <div class="waveWrapperInner bgBottom">
-                <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
-            </div>
-        </div>
-
-
-
-    </div>
-
-    <script src="../public/scripts/meniu.js"></script>
-    <script src="../public/scripts/button-functions.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script type="module" src="../public/scripts/statistics.js"></script>
-    <script type="module" src="../public/scripts/global-events.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script type="module" src="../public/scripts/statistics.js"></script>
+        <script type="module" src="../public/scripts/global-events.js"></script>
 
 </body>
 
