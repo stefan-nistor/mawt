@@ -81,7 +81,8 @@ const getGraphs = async () => {
 };
 getGraphs();
 
-const changeBtn = document.addEventListener("click", () => {
+const changeBtn = document.getElementById("changeBtn");
+changeBtn.addEventListener("click", () => {
   if (document.getElementById("barChart").style.display === "block") {
     document.getElementById("barChart").style.display = "none";
     document.getElementById("pieChart").style.display = "block";
