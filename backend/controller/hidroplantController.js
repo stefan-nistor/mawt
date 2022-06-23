@@ -239,3 +239,26 @@ module.exports.getByName = async(req, res) => {
         res.end()
     }
 }
+
+module.exports.getTopNHidroplants = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
+
+    try {
+        const howMany = req.params.howMany
+        const hidroplantsFromDb = await req.db.Hidroplant.find().sort({ elec_cap: -1 })
+        const hidroplants = hidroplantsFromDb.slice(0, howMany)
+
+        res.statusCode = 200
+        res.setHeader('Content-Type', 'application/json')
+        res.write(JSON.stringify({ success: true, hidroplants, message: `Successfully retrieved the first ${howMany} hidroplants` }))
+        res.end()
+    } catch (e) {
+        console.log(e)
+        res.statusCode = 500
+        res.setHeader('Content-type', 'application/json')
+        res.write(JSON.stringify({ success: false, message: 'Internal Server error!' }))
+        res.end()
+    }
+}

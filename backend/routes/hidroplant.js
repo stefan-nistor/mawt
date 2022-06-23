@@ -8,5 +8,6 @@ router.post('', hidroplantController.createHidroplant)
 router.put('/:id', hidroplantController.updateHidroplant)
 router.delete('/:id', hidroplantController.deleteHidroplant)
 router.get('/name', hidroplantController.getByName)
+router.get('/top', hidroplantController.getTopNHidroplants)
 
 module.exports = router
