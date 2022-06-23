@@ -107,7 +107,7 @@ module.exports.deleteUser = async(req, res) => {
         const user = await req.db.User.findOne({ _id: id })
 
         if (user) {
-            await req.db.User.remove({ _id: id })
+            await req.db.User.deleteOne({ _id: id })
 
             res.statusCode = 205
             res.setHeader('Content-type', 'application/json')
