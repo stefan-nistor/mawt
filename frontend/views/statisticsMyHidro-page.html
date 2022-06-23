@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../public/styles/menu-title.css">
     <link rel="stylesheet" href="../public/styles/waves.css">
     <link rel="stylesheet" href="../public/styles/about-page.css">
-    <link rel="stylesheet" href="../public/styles/statistics.css">
+    <link rel="stylesheet" href="../public/styles/statisticsMyHidro-page.css">
 
 
 </head>
@@ -41,20 +41,25 @@
             
                 <div id="details" class="details">
                     <div class="subtitle-info">
-                       Top 10 Hidropower Plants from India
+                       See the real time process
                     </div>
                     
                  
                     <div class="info"> 
+                        <label for="weatherHidro">Choose the weather:</label>
+
+                        <select name="weather" id="eather">
+                        <option value="sunny">Sunny</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="snowy">Snowy</option>
+                        <option value="stormy">Stormy</option>
+                        <option value="thunder">Thunder</option>
+                        <option value="windy">Windy</option>
+
+                        </select>
                     
-                    <canvas id="barChart" width="100%" height="80" style="display: block" ></canvas>
-                    <canvas id="pieChart" width="100%" height="80" style="display:none"></canvas>
-                    <button id="changeBtn" name="changeBtn">Change view</button>
+                    <div id="chart" height="100"></div>
 
-                    <div class="cover-image"><img src="../diagrams/hidrophoto6.png"> 
-                    </div>
-
-                
                     </div>
 
 
@@ -84,9 +89,9 @@
     <script src="../public/scripts/meniu.js"></script>
     <script src="../public/scripts/button-functions.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
+    <script src='https://cdn.plot.ly/plotly-2.12.1.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script type="module" src="../public/scripts/statistics.js"></script>
+    <script type="module" src="../public/scripts/statisticsMyHidro-page.js"></script>
     <script type="module" src="../public/scripts/global-events.js"></script>
 
 </body>
