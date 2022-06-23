@@ -88,7 +88,7 @@ const checkValid = () => {
       long < 180 &&
       long > -180
     ) {
-      location.href = "./statisticsMyHidro-page.html";
+      location.href = `./statisticsMyHidro-page.html?lat=${lat}&long=${long}`;
     } else {
       document.getElementById("textError").style.display = "block";
     }
