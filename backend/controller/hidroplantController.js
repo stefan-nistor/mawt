@@ -190,7 +190,7 @@ module.exports.deleteHidroplant = async(req, res) => {
         const hidroplant = await req.db.Hidroplant.findOne({ _id: id })
 
         if (hidroplant) {
-            await req.db.Hidroplant.remove({ _id: id })
+            await req.db.Hidroplant.deleteOne({ _id: id })
 
             res.statusCode = 205
             res.setHeader('Content-type', 'application/json')
