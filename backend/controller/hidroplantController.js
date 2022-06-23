@@ -1,5 +1,6 @@
 var { ObjectId } = require('mongodb')
 var { checkAuth, checkIfAdmin } = require('../auth/checkAuth')
+const { weatherTypes } = require('../utils/constants')
 
 module.exports.getAll = async(req, res) => {
     if (!checkAuth(req, res)) {
@@ -314,6 +315,66 @@ module.exports.getClosestHidroplant = async(req, res) => {
         res.statusCode = 200
         res.setHeader('Content-Type', 'application/json')
         res.write(JSON.stringify({ success: true, closestHidroplant, message: `Retrieved hidroplant ${closestHidroplant.name}` }))
+        res.end()
+    } catch (e) {
+        console.log(e)
+        res.statusCode = 500
+        res.setHeader('Content-type', 'application/json')
+        res.write(JSON.stringify({ success: false, message: 'Internal Server error!' }))
+        res.end()
+    }
+}
+
+module.exports.getChangesForWeather = async(req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
+
+    try {
+        const name = req.params.name
+        let hidroplant = await req.db.Hidroplant.findOne({ name: { $regex: new RegExp('^' + name + '$'), $options: 'i' } })
+        if (!hidroplant) {
+            res.statusCode = 404
+            res.setHeader('Content-type', 'application/json')
+            res.write(JSON.stringify({ success: false, message: 'no hidroplant for this name' }))
+            res.end()
+            return
+        }
+
+        let elec_cap = hidroplant.elec_cap
+
+        const weather = Number(req.params.weather)
+        switch (weather) {
+            case weatherTypes.SUNNY:
+                elec_cap = elec_cap * (Math.random() * (0.5 - 0.3) + 0.3)
+                break;
+            case weatherTypes.CLOUDY:
+                elec_cap = elec_cap * (Math.random() * (1.0 - 0.8) + 0.8)
+                break;
+            case weatherTypes.RAINY:
+                elec_cap = elec_cap * (Math.random() * (1.6 - 1.4) + 1.4)
+                break;
+            case weatherTypes.SNOWY:
+                elec_cap = elec_cap * (Math.random() * (1.3 - 1.1) + 1.1)
+                break;
+            case weatherTypes.STORMY:
+                elec_cap = elec_cap * (Math.random() * (1.8 - 1.6) + 1.6)
+                break;
+            case weatherTypes.THUNDER:
+                elec_cap = elec_cap * (Math.random() * (2.0 - 1.8) + 1.8)
+                break;
+            case weatherTypes.WINDY:
+                elec_cap = elec_cap * (Math.random() * (1.3 - 1.1) + 1.1)
+                break;
+            default:
+                elec_cap = elec_cap * 1.0
+        }
+
+        hidroplant.elec_cap = elec_cap
+
+        res.statusCode = 200
+        res.setHeader('Content-type', 'application/json')
+        res.write(JSON.stringify({ success: false, hidroplant, message: 'current electric capacity of the hidroplant' }))
         res.end()
     } catch (e) {
         console.log(e)

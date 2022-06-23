@@ -10,5 +10,6 @@ router.delete('/:id', hidroplantController.deleteHidroplant)
 router.get('/name', hidroplantController.getByName)
 router.get('/top', hidroplantController.getTopNHidroplants)
 router.get('/closest', hidroplantController.getClosestHidroplant)
+router.get('/weather', hidroplantController.getChangesForWeather)
 
 module.exports = router
