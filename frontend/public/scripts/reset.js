@@ -48,7 +48,7 @@ resetBtn.addEventListener('click', async() => {
 
     try {
         const res = await axios.post(`${BASE_URL}/pwd/reset-password/${token}`, {
-            password: password
+            password: password,
         });
 
         alert('Success:' + res.data.message);

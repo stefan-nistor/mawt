@@ -1,8 +1,10 @@
+require('dotenv').config()
+
 module.exports = {
-    port: 3000,
-    hostUrl: 'http://localhost:3000',
-    db_url: 'mongodb+srv://admin:admin@mawt.0d0jq.mongodb.net/mawt?retryWrites=true&w=majority',
-    secret: 'ana_are_mere',
+    port: process.env.PORT,
+    hostUrl: process.env.HOST_URL,
+    db_url: process.env.DB_URL,
+    secret: process.env.JWT_SECRET,
     rounds: 5,
     cors_headers: {
         "Access-Control-Allow-Origin": "*",
