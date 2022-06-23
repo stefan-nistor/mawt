@@ -1,10 +1,11 @@
 const jwt = require('jsonwebtoken')
+const constants = require('../utils/constants')
 
 module.exports.verifyAuth = (token) => {
     let decodedToken;
 
     try {
-        decodedToken = jwt.verify(token, 'ana_are_mere');
+        decodedToken = jwt.verify(token, constants.secret);
     } catch (err) {
         err.statusCode = 500;
         throw err;

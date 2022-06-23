@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const constants = require('../utils/constants')
 const crypto = require('crypto')
 const nodemailer = require('nodemailer')
+require('dotenv').config()
 
 module.exports.forgotPassword = async(req, res) => {
     try {
@@ -15,14 +16,14 @@ module.exports.forgotPassword = async(req, res) => {
             return
         }
 
-        const secret = String(user._id)
+        const secret = String(user._id) + constants.secret
         const payload = {
             email: user.email,
             id: user._id,
         }
 
         const token = jwt.sign(payload, secret, { expiresIn: '30m' })
-        const link = `http://127.0.0.1:5500/frontend/views/reset.html?token=${token}`
+        const link = `${process.env.FRONT_BASE_URL}/frontend/views/reset.html?token=${token}`
 
         const userUpdate = await req.db.User.updateOne({ _id: user._id }, { $set: { password_token: token } }, { upsert: true })
 
@@ -31,13 +32,13 @@ module.exports.forgotPassword = async(req, res) => {
             port: 587,
             secure: false,
             auth: {
-                user: 'mawt_system123@outlook.com',
-                pass: 'Mawt_password1234'
+                user: process.env.MAILING_ACC_EMAIL,
+                pass: process.env.MAILING_ACC_PWD
             }
         })
 
         const info = await transporter.sendMail({
-            from: '"Mawt mailing system" <mawt_system123@outlook.com>',
+            from: `"Mawt mailing system" <${process.env.MAILING_ACC_EMAIL}>`,
             to: user.email,
             subject: 'Reset password link',
             text: `Click the following link to reset your password: ${link}`
@@ -58,6 +59,8 @@ module.exports.forgotPassword = async(req, res) => {
 
 const verifyResetPassword = (req, res, secret) => {
     try {
+        secret = secret + constants.secret
+
         let arr = []
         arr = req.url.split('/')
         let token = arr[arr.length - 1]

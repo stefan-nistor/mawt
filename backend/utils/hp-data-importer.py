@@ -8,7 +8,7 @@ client = MongoClient("mongodb+srv://admin:admin@mawt.0d0jq.mongodb.net/mawt?retr
 db = client.mawt
 mycol = db["Hidroplant"]
 
-with open("/Users/snistor/Downloads/iha_hydrodatabase_240919_csv.csv", newline='', encoding='cp1252') as csvfile:
+with open("<path_to_csv_file>", newline='', encoding='cp1252') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='"', skipinitialspace=True)
     i = 0
     for row in spamreader:
