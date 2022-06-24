@@ -52,7 +52,10 @@ const addHidropowerList = async () => {
                                     ${description}
                                 </div>
                             </div>
-                            
+                            <button id="trash"><span class="trash">
+                            <span></span>
+                             <i></i>
+                             </span></button>
                         </div>
                     </a>`;
     hidroList.innerHTML += item;

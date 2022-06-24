@@ -21,7 +21,7 @@
 
 
 
-.button_plus {
+#button_plus {
     
     width: 35px;
     height: 35px;
@@ -33,13 +33,12 @@
     font-size: 14px;
 
 }
-.button_plus>a{
-    margin-right: 15px;
-    margin-left: 10px;
+#button_plus>a{
+    
     font-size: 25px;
    
 }
-.button_plus:hover {
+#button_plus:hover {
     color:#fff;
     background-color: #095776;
     transition: 0.2s;
