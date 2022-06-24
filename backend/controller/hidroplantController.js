@@ -1,6 +1,7 @@
 var { ObjectId } = require('mongodb')
 var { checkAuth, checkIfAdmin } = require('../auth/checkAuth')
-const { weatherTypes } = require('../utils/constants')
+const constants = require('../utils/constants')
+const RSS = require('rss')
 
 module.exports.getAll = async(req, res) => {
     if (!checkAuth(req, res)) {
@@ -345,25 +346,25 @@ module.exports.getChangesForWeather = async(req, res) => {
 
         const weather = Number(req.params.weather)
         switch (weather) {
-            case weatherTypes.SUNNY:
+            case constants.weatherTypes.SUNNY:
                 elec_cap = elec_cap * (Math.random() * (0.5 - 0.3) + 0.3)
                 break;
-            case weatherTypes.CLOUDY:
+            case constants.weatherTypes.CLOUDY:
                 elec_cap = elec_cap * (Math.random() * (1.0 - 0.8) + 0.8)
                 break;
-            case weatherTypes.RAINY:
+            case constants.weatherTypes.RAINY:
                 elec_cap = elec_cap * (Math.random() * (1.6 - 1.4) + 1.4)
                 break;
-            case weatherTypes.SNOWY:
+            case constants.weatherTypes.SNOWY:
                 elec_cap = elec_cap * (Math.random() * (1.3 - 1.1) + 1.1)
                 break;
-            case weatherTypes.STORMY:
+            case constants.weatherTypes.STORMY:
                 elec_cap = elec_cap * (Math.random() * (1.8 - 1.6) + 1.6)
                 break;
-            case weatherTypes.THUNDER:
+            case constants.weatherTypes.THUNDER:
                 elec_cap = elec_cap * (Math.random() * (2.0 - 1.8) + 1.8)
                 break;
-            case weatherTypes.WINDY:
+            case constants.weatherTypes.WINDY:
                 elec_cap = elec_cap * (Math.random() * (1.3 - 1.1) + 1.1)
                 break;
             default:
@@ -377,6 +378,78 @@ module.exports.getChangesForWeather = async(req, res) => {
         res.write(JSON.stringify({ success: false, hidroplant, message: 'current electric capacity of the hidroplant' }))
         res.end()
     } catch (e) {
+        console.log(e)
+        res.statusCode = 500
+        res.setHeader('Content-type', 'application/json')
+        res.write(JSON.stringify({ success: false, message: 'Internal Server error!' }))
+        res.end()
+    }
+}
+
+const parseHidroplantsArray = (hidroplantsArray) => {
+    let result = []
+    for(let i = 0; i < hidroplantsArray.length; i++){
+        let obj = {
+            hidroplant: [
+                {name: hidroplantsArray[i].name ? encodeURIComponent(hidroplantsArray[i].name) : 'Unknown'},
+                {description: hidroplantsArray[i].purpose ? encodeURIComponent(hidroplantsArray[i].purpose) : 'Unknown'},
+                {lake: hidroplantsArray[i].lake ? encodeURIComponent(hidroplantsArray[i].lake) : 'Unknown'},
+                {river: hidroplantsArray[i].river ? encodeURIComponent(hidroplantsArray[i].river) : 'Unknown'},
+                {admin: hidroplantsArray[i].admin_unit ? encodeURIComponent(hidroplantsArray[i].admin_unit) : 'Unknown'},
+                {year: hidroplantsArray[i].dam_completed ? hidroplantsArray[i].dam_completed : 'Unknown' },
+                {city: hidroplantsArray[i].near_city ? encodeURIComponent(hidroplantsArray[i].near_city) : 'Unknown'},
+                {electic_capacity: hidroplantsArray[i].elec_cap ? hidroplantsArray[i].elec_cap : 'Unknown'},
+                {status: hidroplantsArray[i].op_status ? encodeURIComponent(hidroplantsArray[i].op_status) : 'Unknown'},
+                {latitude: hidroplantsArray[i].lat_res ? hidroplantsArray[i].lat_res : 'Unknown'},
+                {longitude: hidroplantsArray[i].long_res ? hidroplantsArray[i].long_res : 'Unknown'}
+            ]
+        }
+        result.push(obj)
+    }
+    return result
+}
+
+module.exports.getRssFeed = async (req, res) => {
+    if (!checkAuth(req, res)) {
+        return
+    }
+
+    try {
+        const feed = new RSS({
+            title: 'Hidroplants',
+            feed_url: `${constants.hostUrl}/rss.xml`,
+            site_url: constants.hostUrl
+        });
+
+        const hidroplantsArray = await req.db.Hidroplant.find()
+        const date = new Date()
+
+        const obj = {
+            obj:[{ field: 'test' },
+            {tw: 'trecut'},
+            {restante: 0},
+            {test: null}]
+        }
+
+        let arr = []
+        arr.push(obj)
+
+        feed.item({
+            title: 'Hidroplants',
+            description: 'List of all hidroplants from India',
+            url: `${constants.hostUrl}/hidroplants`,
+            date: 'May 27, 2012',
+            custom_elements: parseHidroplantsArray(hidroplantsArray)
+        })
+
+        const xml = feed.xml()
+        res.statusCode = 200
+        res.setHeader('Content-type', 'text/xml')
+        res.write(JSON.stringify({ success: true, xml, message: 'OK' }))
+        res.end()
+
+    }
+    catch (e) {
         console.log(e)
         res.statusCode = 500
         res.setHeader('Content-type', 'application/json')

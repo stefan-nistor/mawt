@@ -11,5 +11,6 @@ router.get('/name', hidroplantController.getByName)
 router.get('/top', hidroplantController.getTopNHidroplants)
 router.get('/closest', hidroplantController.getClosestHidroplant)
 router.get('/weather', hidroplantController.getChangesForWeather)
+router.get('/rss', hidroplantController.getRssFeed)
 
 module.exports = router
