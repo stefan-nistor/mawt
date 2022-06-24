@@ -4,13 +4,10 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: 50% 0;
-
     max-height: 40em;
     font-family: 'Rubik';
     letter-spacing: 2px;
 }
-
-
 
 .title-mainframe {
     font-size: 2.5em;
@@ -19,27 +16,23 @@
     flex-direction: row;
 }
 
-
-
 #button_plus {
-    
     width: 35px;
     height: 35px;
     background: #a0bdf844;
     cursor: pointer;
     border: 2px solid #e3eef2;
-    color:#e3eef2;
+    color: #e3eef2;
     justify-content: center;
     font-size: 14px;
+}
 
-}
-#button_plus>a{
-    
+#button_plus>a {
     font-size: 25px;
-   
 }
+
 #button_plus:hover {
-    color:#fff;
+    color: #fff;
     background-color: #095776;
     transition: 0.2s;
 }
@@ -121,7 +114,6 @@
     flex-direction: column;
     margin: 10px auto;
     text-align: center;
-    
     text-decoration: none;
 }
 
@@ -138,105 +130,95 @@
     text-decoration: none;
 }
 
-
 .trash {
-	background:#ff6873;
-	width: 4vw;
-	height: 3vw;
-	display: inline-block;
-	margin-left: 90%;
+    background: #ff6873;
+    width: 4vw;
+    height: 3vw;
+    display: inline-block;
+    margin-left: 90%;
     top: -60px;
-   position: relative;
-	
-	
-	-webkit-border-bottom-right-radius: 6px;
-	-webkit-border-bottom-left-radius: 6px;
-	-moz-border-radius-bottomright: 6px;
-	-moz-border-radius-bottomleft: 6px;
-	border-bottom-right-radius: 6px;
-	border-bottom-left-radius: 6px;
+    position: relative;
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-bottomright: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 .trash span {
-	position: absolute;
+    position: absolute;
     width: 4.6vw;
-	height: 1vw;
-	background: #ff6873;
-	top: -1.2vw;
-	left: -0.5vw;
-	right: -0.5vw;
-	
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	transform: rotate(0deg);
-	transition: transform 250ms;
-	transform-origin: 19% 100%;
+    height: 1vw;
+    background: #ff6873;
+    top: -1.2vw;
+    left: -0.5vw;
+    right: -0.5vw;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform: rotate(0deg);
+    transition: transform 250ms;
+    transform-origin: 19% 100%;
 }
-
-
 
 .trash i {
-	position:relative;
-	width: 0.5vw;
-	height:1.5vw;
-	background:#fff;
-	display:block;
-	margin:2px auto;
-	border-radius: 5px;
+    position: relative;
+    width: 0.5vw;
+    height: 1.5vw;
+    background: #fff;
+    display: block;
+    margin: 2px auto;
+    border-radius: 5px;
 }
+
 .trash i:after {
-	content: '';
-	width: 0.5vw;
-	height:1.5vw;
-	background: #fff;
-	position: absolute;
-	left: -1.3vw;
-	border-radius: 5px;
+    content: '';
+    width: 0.5vw;
+    height: 1.5vw;
+    background: #fff;
+    position: absolute;
+    left: -1.3vw;
+    border-radius: 5px;
 }
+
 .trash i:before {
-	content: '';
-	width: 0.5vw;
-	height:1.5vw;
-	background: #fff;
-	position: absolute;
-	right: -1.3vw;
-	border-radius: 5px;
+    content: '';
+    width: 0.5vw;
+    height: 1.5vw;
+    background: #fff;
+    position: absolute;
+    right: -1.3vw;
+    border-radius: 5px;
 }
 
 .trash:hover span {
-	transform: rotate(-45deg);
-	transition: transform 250ms;
+    transform: rotate(-45deg);
+    transition: transform 250ms;
 }
 
-  
- 
-  @media screen and (max-device-width: 320px) {
-  
-    .hidro-one{
+@media screen and (max-device-width: 320px) {
+    .hidro-one {
         width: 100%;
-      }
-    .trash{
+    }
+    .trash {
         top: 0;
     }
-  }
-  
-  @media screen and (min-device-width: 321px) and (max-device-width: 499px) {
-   
-    .hidro-one{
-        width: 100%;
-      }
-    .trash{
-        top: 0;
-    }
-
-  }
-  
-  @media screen and (min-device-width: 500px) and (max-device-width: 660px) {
-
-  .hidro-one{
-    width: 100%;
-  }
-  .trash{
-    top: 0;
 }
+
+@media screen and (min-device-width: 321px) and (max-device-width: 499px) {
+    .hidro-one {
+        width: 100%;
+    }
+    .trash {
+        top: 0;
+    }
+}
+
+@media screen and (min-device-width: 500px) and (max-device-width: 660px) {
+    .hidro-one {
+        width: 100%;
+    }
+    .trash {
+        top: 0;
+    }
 }
