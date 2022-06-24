@@ -306,8 +306,6 @@ module.exports.getClosestHidroplant = async(req, res) => {
             if (dist < minDistance) {
                 closestHidroplant = hidroplant
                 minDistance = dist
-                console.log(hidroplant.name)
-                console.log(minDistance)
             }
         }
 
