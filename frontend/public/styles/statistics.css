@@ -1,13 +1,1 @@
-#changeBtn{
-   
-    margin: 15px;
-
-    border-radius: 5%;
-    padding: 10px;
-    color:#ccf6c2 ;
-    background-color: #9ad58c2c;
-    border-style: groove;
-    border-color: #ccf6c2;
-    border-width: 2px;
-   
-}
+#changeBtn{ margin: 15px; border-radius: 5%; padding: 10px; color:#ccf6c2 ; background-color: #9ad58c2c; border-style: groove; border-color: #ccf6c2; border-width: 2px; }
