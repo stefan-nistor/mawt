@@ -58,3 +58,14 @@
     display: flex;
     flex-direction: row;
 }
+
+#hidroStatsLive{
+    background-color: #76b865;
+    color:#f5edf0;
+    font-family: 'Rubik';
+    border-radius: 15%;
+    padding: 8px;
+    border-style: none ;
+
+
+}
