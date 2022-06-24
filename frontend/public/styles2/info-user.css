@@ -1,0 +1,92 @@
+.mainframe {
+    z-index: 20;
+    position: relative;
+    margin: auto;
+    width: 70%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: inherit;
+    justify-content: left;
+    border-radius: 5%;
+    background-color: #0f3961d1;
+}
+
+.title-mainframe {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-family: 'Rubik';
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+.fields {
+    z-index: 20;
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-mainframe>.fields>input {
+    z-index: 20;
+    background-color: #659dbd;
+    padding: 3%;
+    width: 80%;
+    margin: 2% 0;
+    color: #f5edf0;
+    border-style: none;
+    border-radius: 5%;
+}
+
+.title-mainframe>.fields>input:hover {
+    background-color: #DEE4EB;
+}
+
+.title-mainframe>.fields>input[type=text] {
+    color: #f5edf0;
+}
+
+.title-mainframe>.fields>input[type=password] {
+    color: black;
+}
+
+.title-mainframe>.fields>input[type=button] {
+    background-color: #76b865;
+    font-family: 'Rubik';
+}
+
+.title-mainframe>.fields>input[type=text]:hover {
+    width: 90%;
+}
+
+.title-mainframe>.fields>input:active {
+    background-color: bisque;
+}
+
+.current-info {
+    background-color: #dee4eb3d;
+    margin-top: 10%;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    height: 30%;
+    padding: .5em 1.5em;
+    margin-bottom: 3em;
+    margin-top: 1em;
+    font-size: small;
+    color: #9dc3d8;
+    font-family: 'Overpass';
+}
+
+.text-before {
+    color: #f5edf0;
+    font-family: 'Rubik';
+}

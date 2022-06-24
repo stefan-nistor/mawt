@@ -1,0 +1,15 @@
+.info>select{
+    background-color: #a0bdf8c6;
+    background-image: linear-gradient(#76b865, #76b865cd);
+    color:white;
+    padding: 10px;
+    font-family: 'Overpass';
+    margin-bottom: 20px;
+    border-radius: 15%;
+    overflow-y: auto;
+
+}
+.info>label{
+    color:azure;
+    margin-right: 30px;
+}

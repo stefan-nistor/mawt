@@ -1,0 +1,189 @@
+.body{
+  overflow: hidden;
+}
+.mainframe{
+  margin-top: 30px;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+   
+    
+}
+.flex-container{
+  margin: 0 auto;
+  width: 60%;
+  height: 70%;
+}
+
+.title-mainframe {
+  margin-top: 10%;
+    font-size: 3em;
+    font-family: 'Rubik';
+}
+.details-hidro1 {
+  
+    font-family: 'Overpass';
+    color: #f5edf0;
+   
+}
+
+.details{
+ 
+    width: 80%;
+    margin: 20px;
+    align-items:center;
+    justify-content: center;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.scrollDown{
+  margin: 20% auto;
+  align-content: flex-end;
+  
+}
+.scrollDown>button{
+  
+  background-color: #9bd58c;
+  padding: 15px;
+  border-radius: 50%;
+}
+.scrollDown>button>img{
+  width: 30px;
+  height: 30px;
+}
+.info{
+  margin: 200px auto;
+  
+}
+.subtitle-info{
+  font-family: 'Rubik';
+  font-size: 6vw;
+  color:#f5edf0;
+}
+.info>.cover-image{
+  height: 1vw;
+}
+.cover-image>img{
+
+  /* Center and scale the image nicely */
+  height: 25vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.more-info{
+  margin-top: 25vw;
+  font-family: 'Overpass';
+  font-size: 15px;
+  color: #f5edf0;
+}
+.more-info>a{
+  text-decoration: none;
+  color: #9bd58c;
+  font-weight: bolder;
+}
+
+#clockdiv{
+    width: 100%;
+    font-family: 'Rubik';
+    color: #9bd58c;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 3vw;
+    
+  }
+  
+  #clockdiv > div{
+    width: 22%;
+    border-radius: 3px;
+    background: #A0BEF8;
+    display: inline-block;
+  }
+  
+  #clockdiv div > span{
+    width: 85%;
+    margin-top: 7px;
+    border-radius: 3px;
+    background: #B5F0F0;
+    display: inline-block;
+  }
+  
+  .smalltext{
+    font-family: 'Overpass';
+    color:#f5edf0;
+    padding-top: 5px;
+    font-size: 2vw;
+  }
+
+
+  ::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* / Track / */
+
+::-webkit-scrollbar-track {
+    background-image: linear-gradient(to right, #23252b70, #23252bae);
+}
+
+
+/* / Handle */
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-image: linear-gradient( #B5F0F0, #A0BEF8);
+    outline: 1px solid #23252B;
+}
+
+  @media screen and (max-device-width: 320px) {
+    .mainframe {
+        top: 15px;
+        width: 70%;
+    }
+    .title-mainframe{
+        font-size: 2em;
+    }
+    
+    .waveWrapper .waveWrapperInner .wave {
+        width: 0%;
+        visibility: hidden;
+    }
+  }
+  
+  @media screen and (min-device-width: 321px) and (max-device-width: 499px) {
+   
+    .mainframe {
+        top: 10px;
+        width: 100%;
+    }
+    
+    .flex-container{
+      max-width: 100%;
+      
+    }
+
+    .title-mainframe{
+        font-size: 2em;
+    }
+    
+  }
+  @media screen and (max-device-width: 320px) {
+   
+    .mainframe {
+        top: 10px;
+        width: 90%;
+    }
+    .flex-container{
+      max-width: 100%;
+      margin-left: 0;
+    }
+    
+    .title-mainframe{
+        font-size: 2em;
+    }
+    
+  }
