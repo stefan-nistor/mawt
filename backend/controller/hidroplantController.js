@@ -219,7 +219,8 @@ module.exports.getByName = async(req, res) => {
 
     try {
         const name = req.params.name
-        const hidroplant = await req.db.Hidroplant.findOne({ name: { $regex: new RegExp('^' + name + '$'), $options: 'i' } })
+        const regex = name.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+        const hidroplant = await req.db.Hidroplant.findOne({ name: { $regex: new RegExp('^' + regex + '$'), $options: 'i' } })
 
         if (hidroplant) {
             res.statusCode = 200
