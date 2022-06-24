@@ -266,16 +266,11 @@ module.exports.getTopNHidroplants = async(req, res) => {
 }
 
 const distanceBetween = (lat1, lat2, lon1, lon2) => {
-
-    // The math module contains a function
-    // named toRadians which converts from
-    // degrees to radians.
     lon1 = lon1 * Math.PI / 180;
     lon2 = lon2 * Math.PI / 180;
     lat1 = lat1 * Math.PI / 180;
     lat2 = lat2 * Math.PI / 180;
 
-    // Haversine formula
     let dlon = lon2 - lon1;
     let dlat = lat2 - lat1;
     let a = Math.pow(Math.sin(dlat / 2), 2) +
@@ -284,11 +279,8 @@ const distanceBetween = (lat1, lat2, lon1, lon2) => {
 
     let c = 2 * Math.asin(Math.sqrt(a));
 
-    // Radius of earth in kilometers. Use 3956
-    // for miles
     let r = 6371;
 
-    // calculate the result
     return (c * r);
 }
 
@@ -306,10 +298,16 @@ module.exports.getClosestHidroplant = async(req, res) => {
         let minDistance = Number.MAX_SAFE_INTEGER
 
         for (const hidroplant of hidroplants) {
+            if (hidroplant.lat_res == null || hidroplant.long_res == null) {
+                continue
+            }
+
             let dist = distanceBetween(lat, long, hidroplant.lat_res, hidroplant.long_res)
             if (dist < minDistance) {
                 closestHidroplant = hidroplant
                 minDistance = dist
+                console.log(hidroplant.name)
+                console.log(minDistance)
             }
         }
 
@@ -333,7 +331,8 @@ module.exports.getChangesForWeather = async(req, res) => {
 
     try {
         const name = req.params.name
-        let hidroplant = await req.db.Hidroplant.findOne({ name: { $regex: new RegExp('^' + name + '$'), $options: 'i' } })
+        const regex = name.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+        let hidroplant = await req.db.Hidroplant.findOne({ name: { $regex: new RegExp('^' + regex + '$'), $options: 'i' } })
         if (!hidroplant) {
             res.statusCode = 404
             res.setHeader('Content-type', 'application/json')
