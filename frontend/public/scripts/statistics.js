@@ -39,6 +39,9 @@ const createBarChart = (data) => {
         },
       ],
     },
+    options: {
+      responsive: true,
+    },
   };
   barChart = new Chart(canvasElement, config);
 };
@@ -63,6 +66,9 @@ const createPieChart = (data) => {
           borderWidth: 1,
         },
       ],
+    },
+    options: {
+      responsive: true,
     },
   };
   pieChart = new Chart(canvasElement2, config2);

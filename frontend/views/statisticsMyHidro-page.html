@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="../public/styles/media-style.css">
     <link rel="stylesheet" href="../public/styles/menu-title.css">
     <link rel="stylesheet" href="../public/styles/waves.css">
-    <link rel="stylesheet" href="../public/styles/home.css">
+    <link rel="stylesheet" href="../public/styles/about-page.css">
+    <link rel="stylesheet" href="../public/styles/statisticsMyHidro-page.css">
+
 
 </head>
 
@@ -25,36 +27,43 @@
         <div class="config-buttons">
             <div class="user">
 
-                <button title="Config1" onclick="document.location='./about-page.html'"><img src="../diagrams/calendar.png"><a >About</a></button>
+                <button title="Config1" onclick="document.location='./about-page.html'" ><img src="../diagrams/calendar.png"><a >About</a></button>
                 <button title="Config2" onclick="document.location='./statistics.html'"><img src="../diagrams/statistics.png"><a>Statistics</a></button>
                 <button onclick="userPage()"> <img src="../diagrams/userIcon.png"><a>User</a></button>
 
             </div>
         </div>
 
-        <span style="z-index: 20;font-size:30px;cursor:pointer; position: absolute;top: 10px;" onclick="openNav()">&#9776; </span>
+       
         <div class="flex-container">
-            <div id="menu" class="meniu">
-                <div id="boxes-menu" class="meniuBoxes">
-                    <input type="text" name="searchBar" id="searchBar" class="searchBar" onclick="showDropdown()" onkeyup="searchBar()" placeholder="Search...">
-                    <div id="dropdown" class="dropdown-content">
+           
+            <div id="main" class="mainframe">
+            
+                <div id="details" class="details">
+                    <div class="subtitle-info">
+                       See the real time process
+                    </div>
+                    
+                 
+                    <div class="info"> 
+                        <label for="weatherHidro">Choose the weather:</label>
+
+                        <select name="weather" id="weather">
+                        <option value="sunny">Sunny</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="snowy">Snowy</option>
+                        <option value="stormy">Stormy</option>
+                        <option value="thunder">Thunder</option>
+                        <option value="windy">Windy</option>
+
+                        </select>
+                    
+                    <div id="chart" height="100"></div>
 
                     </div>
-                    <input type="button" value="HOME" onclick="getHomePage()">
-                    <input type="button" value="MAP" onclick="getMapPage()">
-                    <input type="button" value="MY HIDROPOWER PLANT" onclick="getMyHidro()">
 
-                </div>
-            </div>
-            <div id="main" class="mainframe">
-                <div class="title-mainframe">HIDROPOWER PLANTS
-                   
-                </div>
-                 
-                <div class="hidro-list">
 
-                    
-                </div>
+
             </div>
         </div>
 
@@ -80,12 +89,10 @@
     <script src="../public/scripts/meniu.js"></script>
     <script src="../public/scripts/button-functions.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../public/scripts/dropdownMenu.js"></script>
-    <script src="../public/scripts/searchBarMenu.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.12.1.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script type="module" src="../public/scripts/statisticsMyHidro-page.js"></script>
     <script type="module" src="../public/scripts/global-events.js"></script>
-    <script type="module" src="../public/scripts/home.js"></script>
-    <script type="module" src="../public/scripts/initialiseDropMenu.js"></script>
-
 
 </body>
 

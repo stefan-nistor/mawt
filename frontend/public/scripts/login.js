@@ -4,71 +4,74 @@ sessionStorage.setItem("JWT_TOKEN", null);
 
 var email = "";
 var password;
-var regex = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+var regex = new RegExp(
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+);
 var verifyEmail;
 
-
 const getEmail = () => {
-    email = document.querySelector("#email").value;
-    verifyEmail = regex.exec(email);
-    return email;
-}
+  email = document.querySelector("#email").value;
+  verifyEmail = regex.exec(email);
+  return email;
+};
 
 const getPassword = () => {
-    password = document.querySelector("#password").value;
-    return password;
-}
+  password = document.querySelector("#password").value;
+  return password;
+};
 
 const checkIfCompleted = () => {
-    getEmail();
-    getPassword();
+  getEmail();
+  getPassword();
 
-    document.getElementById("textError1").style.display = "none";
-    document.getElementById("textError2").style.display = "none";
-    document.getElementById("textSuccess").style.display = "none";
-    document.getElementById("textErrorLogin").style.display = "none";
+  document.getElementById("textError1").style.display = "none";
+  document.getElementById("textError2").style.display = "none";
+  document.getElementById("textSuccess").style.display = "none";
+  document.getElementById("textErrorLogin").style.display = "none";
 
-    if (verifyEmail != null && password.length > 7) {
-        return true;
-    } else {
-        if (password.length < 8) {
-            document.getElementById("textError1").style.display = "block";
-
-        }
-        if (verifyEmail == null) {
-            document.getElementById("textError2").style.display = "block";
-        }
-
-        return false;
+  if (verifyEmail != null && password.length > 7) {
+    return true;
+  } else {
+    if (password.length < 8) {
+      document.getElementById("textError1").style.display = "block";
     }
-}
-
-const loginUser = async() => {
-    if (!checkIfCompleted()) {
-        return;
+    if (verifyEmail == null) {
+      document.getElementById("textError2").style.display = "block";
     }
 
-    try {
-        const response = await axios.post(`${BASE_URL}/auth/login`, JSON.stringify({
-            email: email,
-            password: password
-        }));
+    return false;
+  }
+};
 
-        console.log(response);
-        // document.getElementById("textSuccess").style.display = "block";
-        alert("Login successful");
-        sessionStorage.setItem("JWT_TOKEN", response.data.token);
+const loginUser = async () => {
+  if (!checkIfCompleted()) {
+    return;
+  }
 
-        location.href = "./home.html";
-        return response;
-    } catch (err) {
-        console.log(err);
-        let errText = document.getElementById("textErrorLogin");
-        errText.textContent = "Error at login: " + err.response.data.message;
-        errText.style.display = "block";
-        return err;
-    }
-}
+  try {
+    const response = await axios.post(
+      `${BASE_URL}/auth/login`,
+      JSON.stringify({
+        email: email,
+        password: password,
+      })
+    );
 
-const registerBtn = document.querySelector('#loginBtn');
-registerBtn.addEventListener('click', loginUser, false);
+    console.log(response);
+    // document.getElementById("textSuccess").style.display = "block";
+    alert("Login successful");
+    sessionStorage.setItem("JWT_TOKEN", response.data.token);
+
+    location.href = "./homeAdmin.html";
+    return response;
+  } catch (err) {
+    console.log(err);
+    let errText = document.getElementById("textErrorLogin");
+    errText.textContent = "Error at login: " + err.response.data.message;
+    errText.style.display = "block";
+    return err;
+  }
+};
+
+const registerBtn = document.querySelector("#loginBtn");
+registerBtn.addEventListener("click", loginUser, false);
