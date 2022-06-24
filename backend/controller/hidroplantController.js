@@ -332,7 +332,7 @@ module.exports.getChangesForWeather = async(req, res) => {
 
     try {
         const name = req.params.name
-        let hidroplant = await req.db.Hidroplant.findOne({ name: { $regex: new RegExp('^' + name + '$'), $options: 'i' } })
+        let hidroplant = await req.db.Hidroplant.findOne({ name: name })
         if (!hidroplant) {
             res.statusCode = 404
             res.setHeader('Content-type', 'application/json')
