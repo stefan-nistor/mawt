@@ -51,7 +51,9 @@ const getElectricCapChange = async () => {
 
     let wheatherSt = String(weatherToTypeMap[weatherStr]);
     const res = await axios.get(
-      `${BASE_URL}/hidroplants/weather?name=${hidroplant.name}&weather=${wheatherSt}`,
+      `${BASE_URL}/hidroplants/weather?name=${encodeURIComponent(
+        hidroplant.name
+      )}&weather=${wheatherSt}`,
       {
         headers: {
           Authorization: `Bearer ${authToken}`,

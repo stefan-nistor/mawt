@@ -38,9 +38,9 @@ const addHidropowerList = async () => {
     const description = hidroplants[counter].purpose
       ? hidroplants[counter].purpose
       : "Hidroplant";
-    let item = `<a href="./hidroPower-Page.html?name=${
+    let item = `<a href="./hidroPower-Page.html?name=${encodeURIComponent(
       hidroplants[counter].name
-    }">
+    )}">
                         <div class="hidro-one">
                             <div class="white-box">
                                 ${counter + 1}

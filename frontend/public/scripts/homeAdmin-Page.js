@@ -40,9 +40,9 @@ const addHidropowerList = async () => {
     let item = `<div id="${
       hidroplants[counter].name
     }" style="text-decoration:none">
-                      <a href="./hidroPower-Page.html?name=${
+                      <a href="./hidroPower-Page.html?name=${encodeURIComponent(
                         hidroplants[counter].name
-                      }">
+                      )}">
                           <div class="hidro-one">
                               <div class="white-box">
                                   ${counter + 1}
@@ -68,11 +68,14 @@ const addHidropowerList = async () => {
 
 const getHidroplantForName = async (name) => {
   try {
-    const res = await axios.get(`${BASE_URL}/hidroplants/name?name=${name}`, {
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    });
+    const res = await axios.get(
+      `${BASE_URL}/hidroplants/name?name=${encodeURIComponent(name)}`,
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      }
+    );
 
     return res.data.hidroplant;
   } catch (err) {
