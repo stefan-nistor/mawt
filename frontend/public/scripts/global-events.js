@@ -23,7 +23,7 @@ for (const searchBar of searchBars) {
                 }
             );
 
-            location.href = `./hidroPower-Page.html?name=${res.data.hidroplant.name}`;
+            location.href = `./hidroPower-Page.html?name=${encodeURIComponent(res.data.hidroplant.name)}`;
         } catch (err) {
             console.log(err);
             alert("Bad search: " + err.response.data.message);

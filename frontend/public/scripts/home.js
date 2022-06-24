@@ -124,9 +124,9 @@ const addTrashButtonFunctionalities = () => {
     trashBtn.addEventListener("click", async () => {
       try {
         const name = trashBtn.parentElement.id;
-        console.log(name);
+        
         const hidroplant = await getHidroplantForName(name);
-        console.log(hidroplant);
+       
         const res = await axios.delete(
           `${BASE_URL}/hidroplants/${hidroplant._id}`,
           {
@@ -137,7 +137,8 @@ const addTrashButtonFunctionalities = () => {
           }
         );
 
-        alert("Success: " + res.data.message);
+       
+        alert("Success: DELETED HIDROPLANT");
         location.reload();
       } catch (err) {
         alert("Error: " + err.response.data.message);

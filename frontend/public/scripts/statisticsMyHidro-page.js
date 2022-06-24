@@ -22,6 +22,8 @@ const queryString = window.location.search;
 
 const urlParams = new URLSearchParams(queryString);
 
+const name = urlParams.get("name") ? urlParams.get("name") : null ;
+
 const latH = urlParams.get("lat");
 const longH = urlParams.get("long");
 
@@ -43,11 +45,38 @@ const getClosestHidro = async () => {
   }
 };
 
-const getElectricCapChange = async () => {
+const getHidroplantByName = async (name) => {
   try {
+    const res = await axios.get(
+      `${BASE_URL}/hidroplants/name?name=${encodeURIComponent(name)}`,
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      }
+    );
+
+    return res.data.hidroplant;
+  } catch (err) {
+    alert("Error: " + err.response.data.message);
+  }
+};
+
+
+const getElectricCapChange = async (name) => {
+  try {
+    
     const weatherStr = document.getElementById("weather").value;
 
-    const hidroplant = await getClosestHidro();
+    let hidroplant;
+
+    if(name==null){
+      hidroplant= await getClosestHidro();
+    }
+    else{
+      hidroplant = await getHidroplantByName(name);
+    }
+
 
     let wheatherSt = String(weatherToTypeMap[weatherStr]);
     const res = await axios.get(
@@ -69,7 +98,7 @@ const getElectricCapChange = async () => {
 };
 
 const getData = async () => {
-  const data = await getElectricCapChange();
+  const data = await getElectricCapChange(name);
 
   if (data == null) {
     return 0;
