@@ -1,4 +1,5 @@
 import { BASE_URL } from "./constants.js";
+import { getCurrentUser } from "./info-user.js";
 
 const authToken = sessionStorage.getItem("JWT_TOKEN");
 
