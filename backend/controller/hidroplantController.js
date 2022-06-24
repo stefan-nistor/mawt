@@ -195,7 +195,7 @@ module.exports.deleteHidroplant = async(req, res) => {
 
             res.statusCode = 205
             res.setHeader('Content-type', 'application/json')
-            res.write(JSON.stringify({ success: true, msg: "removed hidroplant", message: 'DELETED' }))
+            res.write(JSON.stringify({ success: true, message: 'removed hidroplant' }))
             res.end()
         } else {
             res.statusCode = 404
