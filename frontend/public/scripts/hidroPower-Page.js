@@ -123,7 +123,7 @@ const buttonLive = async () => {
   } else {
     liveBtn.style.display = "block";
     liveBtn.addEventListener("click", () => {
-      location.href = `./statisticsMyHidro-page.html?lat=${latitude}&long=${longitude}`;
+      location.href = `./statisticsMyHidro-page.html?name=${encodeURIComponent(nameH)}&lat=${latitude}&long=${longitude}`;
     });
   }
 };
