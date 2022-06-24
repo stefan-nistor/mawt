@@ -78,7 +78,8 @@
 
 .hidro-one {
     margin: 1.2em;
-    width: 100%;
+    text-decoration: none;
+    width: 80%;
     min-width: 15em;
     background-color: #0f3961;
     background-image: linear-gradient(#0f3961, #2e608f);
@@ -112,6 +113,7 @@
     font-weight: bold;
     border-style: none solid groove none;
     border-color: #cdba70;
+    text-decoration: none;
 }
 
 .text-hidro {
@@ -119,27 +121,34 @@
     flex-direction: column;
     margin: 10px auto;
     text-align: center;
+    
+    text-decoration: none;
 }
 
 .name-hidro {
     font-size: large;
     text-align: center;
+    text-decoration: none;
 }
 
 .details-hidro {
     margin: 10px auto;
     font-family: 'Overpass';
+    font-size: 12px;
+    text-decoration: none;
 }
 
 
 .trash {
 	background:#ff6873;
-	width: 30px;
-	height: 20px;
+	width: 4vw;
+	height: 3vw;
 	display: inline-block;
-	margin:2em auto;
+	margin-left: 90%;
+    top: -60px;
+   position: relative;
 	
-	position: relative;
+	
 	-webkit-border-bottom-right-radius: 6px;
 	-webkit-border-bottom-left-radius: 6px;
 	-moz-border-radius-bottomright: 6px;
@@ -150,10 +159,10 @@
 
 .trash span {
 	position: absolute;
-    width: 40px;
-	height: 12px;
+    width: 5vw;
+	height: 1vw;
 	background: #ff6873;
-	top: -19px;
+	top: -1.2vw;
 	left: -5px;
 	right: -10px;
 	
@@ -168,8 +177,8 @@
 
 .trash i {
 	position:relative;
-	width: 2px;
-	height:10px;
+	width: 0.5vw;
+	height:1.5vw;
 	background:#fff;
 	display:block;
 	margin:2px auto;
@@ -177,20 +186,20 @@
 }
 .trash i:after {
 	content: '';
-	width: 2px;
-	height:10px;
+	width: 0.5vw;
+	height:1.5vw;
 	background: #fff;
 	position: absolute;
-	left: -10px;
+	left: -1.3vw;
 	border-radius: 5px;
 }
 .trash i:before {
 	content: '';
-	width: 2px;
-	height:10px;
+	width: 0.5vw;
+	height:1.5vw;
 	background: #fff;
 	position: absolute;
-	right: -10px;
+	right: -1.3vw;
 	border-radius: 5px;
 }
 
@@ -198,11 +207,43 @@
 	transform: rotate(-45deg);
 	transition: transform 250ms;
 }
-.hidro-one>button{
+/* .hidro-one>button{
     margin-right: 25px;
     background-color: #ff68723b;
     border-color: #ebe5e0;
     border-style: solid;
     padding: 10px;
     
+} */
+  
+ 
+  @media screen and (max-device-width: 320px) {
+  
+    .hidro-one{
+        width: 100%;
+      }
+    .trash{
+        top: 0;
+    }
+  }
+  
+  @media screen and (min-device-width: 321px) and (max-device-width: 499px) {
+   
+    .hidro-one{
+        width: 100%;
+      }
+    .trash{
+        top: 0;
+    }
+
+  }
+  
+  @media screen and (min-device-width: 500px) and (max-device-width: 660px) {
+
+  .hidro-one{
+    width: 100%;
+  }
+  .trash{
+    top: 0;
+}
 }
