@@ -384,26 +384,24 @@ module.exports.getChangesForWeather = async(req, res) => {
     }
 }
 
-const parseHidroplantsArray = (hidroplantsArray) => {
+const parseHidroplant = (hidroplant) => {
     let result = []
-    for(let i = 0; i < hidroplantsArray.length; i++){
-        let obj = {
-            hidroplant: [
-                {name: hidroplantsArray[i].name ? encodeURIComponent(hidroplantsArray[i].name) : 'Unknown'},
-                {description: hidroplantsArray[i].purpose ? encodeURIComponent(hidroplantsArray[i].purpose) : 'Unknown'},
-                {lake: hidroplantsArray[i].lake ? encodeURIComponent(hidroplantsArray[i].lake) : 'Unknown'},
-                {river: hidroplantsArray[i].river ? encodeURIComponent(hidroplantsArray[i].river) : 'Unknown'},
-                {admin: hidroplantsArray[i].admin_unit ? encodeURIComponent(hidroplantsArray[i].admin_unit) : 'Unknown'},
-                {year: hidroplantsArray[i].dam_completed ? hidroplantsArray[i].dam_completed : 'Unknown' },
-                {city: hidroplantsArray[i].near_city ? encodeURIComponent(hidroplantsArray[i].near_city) : 'Unknown'},
-                {electic_capacity: hidroplantsArray[i].elec_cap ? hidroplantsArray[i].elec_cap : 'Unknown'},
-                {status: hidroplantsArray[i].op_status ? encodeURIComponent(hidroplantsArray[i].op_status) : 'Unknown'},
-                {latitude: hidroplantsArray[i].lat_res ? hidroplantsArray[i].lat_res : 'Unknown'},
-                {longitude: hidroplantsArray[i].long_res ? hidroplantsArray[i].long_res : 'Unknown'}
-            ]
-        }
-        result.push(obj)
+    let obj = {
+        hidroplant: [
+            {name: hidroplant.name ? encodeURIComponent(hidroplant.name) : 'Unknown'},
+            {description: hidroplant.purpose ? encodeURIComponent(hidroplant.purpose) : 'Unknown'},
+            {lake: hidroplant.lake ? encodeURIComponent(hidroplant.lake) : 'Unknown'},
+            {river: hidroplant.river ? encodeURIComponent(hidroplant.river) : 'Unknown'},
+            {admin: hidroplant.admin_unit ? encodeURIComponent(hidroplant.admin_unit) : 'Unknown'},
+            {year: hidroplant.dam_completed ? hidroplant.dam_completed : 'Unknown' },
+            {city: hidroplant.near_city ? encodeURIComponent(hidroplant.near_city) : 'Unknown'},
+            {electic_capacity: hidroplant.elec_cap ? hidroplant.elec_cap : 'Unknown'},
+            {status: hidroplant.op_status ? encodeURIComponent(hidroplant.op_status) : 'Unknown'},
+            {latitude: hidroplant.lat_res ? hidroplant.lat_res : 'Unknown'},
+            {longitude: hidroplant.long_res ? hidroplant.long_res : 'Unknown'}
+        ]
     }
+    result.push(obj)
     return result
 }
 
@@ -417,30 +415,23 @@ module.exports.getRssFeed = async (req, res) => {
             title: 'Hidroplants',
             feed_url: `${constants.hostUrl}/rss.xml`,
             site_url: constants.hostUrl
-        });
-
-        const hidroplantsArray = await req.db.Hidroplant.find()
-        const date = new Date()
-
-        const obj = {
-            obj:[{ field: 'test' },
-            {tw: 'trecut'},
-            {restante: 0},
-            {test: null}]
-        }
-
-        let arr = []
-        arr.push(obj)
-
-        feed.item({
-            title: 'Hidroplants',
-            description: 'List of all hidroplants from India',
-            url: `${constants.hostUrl}/hidroplants`,
-            date: 'May 27, 2012',
-            custom_elements: parseHidroplantsArray(hidroplantsArray)
         })
 
-        const xml = feed.xml()
+        const name = req.params.name
+        const regex = name.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+        const hidroplant = await req.db.Hidroplant.findOne({ name: { $regex: new RegExp('^' + regex + '$'), $options: 'i' } })
+
+        const date = new Date()
+
+        feed.item({
+            title: 'Hidroplant',
+            description: 'RSS feed for hidroplant',
+            url: `${constants.hostUrl}/hidroplants`,
+            date: 'May 27, 2012',
+            custom_elements: parseHidroplant(hidroplant)
+        })
+
+        const xml = feed.xml({indent: true})
         res.statusCode = 200
         res.setHeader('Content-type', 'text/xml')
         res.write(JSON.stringify({ success: true, xml, message: 'OK' }))

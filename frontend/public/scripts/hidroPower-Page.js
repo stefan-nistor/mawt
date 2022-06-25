@@ -11,12 +11,10 @@ let latitude;
 let longitude;
 
 const queryString = window.location.search;
-console.log(queryString);
 
 const urlParams = new URLSearchParams(queryString);
 
 const nameH = urlParams.get("name");
-console.log(nameH);
 document.getElementById("nameOfHidro").textContent = nameH.toUpperCase();
 
 const getHidropowerPlantList = async () => {
@@ -128,3 +126,8 @@ const buttonLive = async () => {
   }
 };
 buttonLive();
+
+const rssButton = document.getElementById('rssAll')
+rssButton.addEventListener('click', () => {
+  location.href=`./rss-feed.html?name=${encodeURIComponent(nameH)}`
+})
