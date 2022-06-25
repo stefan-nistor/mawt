@@ -14,5 +14,5 @@ Develop a Web system for hydropower management: from the optimal location of hyd
 * Clone the repository on your machine
 * Open a terminal in `/backend` folder and run `npm -i`. This will install all nedded dependencies
 * Run `hp-data-importer.py` script after editing it with desiered CSV file path (this operation should be completed once)
-* Run `npm run dev` in  `/backend` folder to start backend server
-* Right-click on a `.html` page form `/frontend/views` and select `Open with Live Server`
+* Run `npm start` or `npm run dev` (to start the server with `nodemon`) in  `/backend` folder to start backend server
+* Right-click on a `.html` page form `/frontend/views` and select `Open with Live Server` for Visual Studio Code, or use any plugin that allows you to view html files live.
