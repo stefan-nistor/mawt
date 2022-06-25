@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Report on a Web System for managing Water Turbines</title>
+    <link rel="stylesheet" href="css/scholarly.min.css">
+    <script src="js/scholarly.min.js"></script>
+</head>
+
+<body prefix="schema: http://schema.org">
+    <header>
+        <h1>Report on a Web System for managing Water Turbines</h1>
+    </header>
+    <!--
+      XXX
+      - check refs
+      - the math example has too much maths
+      - bring back some of the old style
+      - make semantics, validation, processing sub-sections of each structural element
+      - have a section before that for general constructs
+        - explain why use RDFa
+        - explain our patterns: RDFa, roles
+      - figure captions need to get set throughout
+      - dedication? see doc-dedication
+      - syntactic constraints (prefix)
+      - needs more sthenurines
+      - examples of everything
+      - some notes on using Semantic CSS
+      - needs more RDFa in the spec itself
+    -->
+    <div role="contentinfo">
+        <dl>
+            <dt>Authors</dt>
+            <dd>
+                Nistor Stefan, stefan.nistor@info.uaic.ro <br> Samson Ioan-Paul, ioan.samson@info.uaic.ro <br> Motoroiu Andreea-Maria, maria.motoroiu@info.uaic.ro <br>
+            </dd>
+        </dl>
+    </div>
+    <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+        <h2>Abstract</h2>
+        <p>
+            In this report we will describe the application functionality of creating a Web System for Managing Water Turbines, explain choices of implementation and general purposes for such an application.
+        </p>
+    </section>
+    <section id="introduction" role="doc-introduction">
+        <!-- review? -->
+        <h2>Introduction</h2>
+        <p>
+            The report aims to describe the uses of a web system for Managing Water Turbines, along with how did our team go about implementing such a web application.
+        </p>
+        <p>
+            In today's time, many applications have a web interface, since it's easy to use for both clients and developers who need to find data about a specific topic. Unlike a desktop application for example, a web application is more easily customizable and managable.
+        </p>
+        <p>
+            The main audiance for this report are people who are interested in web applications for managing different types of real life systems, as well as people who are interested in the concrete applications of a System for Managing Water Turbines.
+        </p>
+        <p>
+            The purpose of this application is to assist in visualising, comparing and adding different water turbines around the world. The main benefit of such a web system is, of course, the user-friendliness that it provides for the specific tassk. Our objectives
+            in developing this app are to help people interested in such a system have a better experience for managing and visualising Water Turbines.
+        </p>
+        <p>
+            <h3>References</h5>
+                <a href="https://sciencing.com/build-dam-craft-popsicle-sticks-6819380.html">Sciencing.com</a> <br>
+                <a href="http://www.wvic.com/content/how_hydropower_works.cfm?fbclid=IwAR16fafRybWYYQz3P5pfIvgiOcsSEDCaWTMMsTUWaKI2xkVcf7xL4B9XDfc">How Hydropower Works</a> <br>
+                <a href="https://www.hidroelectrica.ro/">Hidroelectrica Main Page</a> <br>
+                <a href="https://ro.wikipedia.org/wiki/Por%C8%9Bile_de_Fier_I">Iron Gates I Hydropower Plant</a> <br>
+                <a href="https://ro.wikibooks.org/wiki/List%C4%83_cu_centrale_electrice_din_Rom%C3%A2nia">List of power plants in Romania</a> <br>
+        </p>
+        <p>
+            Our high-level goals are to:
+        </p>
+        <ul>
+            <li>Enable structured metadata, accessibility, and internationalisation.</li>
+            <li>Be fully funcitioning on modern Web browsers.</li>
+            <li>
+                Be customizable for inclusion in arbitrary Web sites, while remaining easy to process and interoperable.
+            </li>
+            <li>Build on top of open, royalty-free standards.</li>
+            <li>Long-term viability as a data format.</li>
+        </ul>
+    </section>
+    <section id="structure">
+        <!-- review? -->
+        <h2>Overall Description</h2>
+        <p>
+            This product is a replacement for a general system for Managing Water Turbines, with a web interface such that is it easy to use and easily customizable.
+        </p>
+        <section id="Root">
+            <!-- review? -->
+            <h3>Product Functions</h3>
+            <ul>
+                <li>Login Page
+                    <ul>
+                        <li>Login: provides a way for the user to login to the application if credentials are correct and redirects the user to the home page</li>
+                        <li>redirects for pages to create account, reset password</li>
+                    </ul>
+                </li>
+                <li>Register Page
+                    <ul>
+                        <li>Register: provides a way for the user to create an account and then redirects the user to the login page</li>
+                        <li>redirects for pages to login</li>
+                    </ul>
+                </li>
+                <li>Forgot-Password Page & Reset Password Page
+                    <ul>
+                        <li>Forgot Password: gives the user a way to input their email address, and the server sends a mail to the specific email address with a unique and exipiring link to reset the password</li>
+                </li>
+                <li>Reset Password: can only be accessed through the unique link sent to the email, provides the user with a way to input a new password for their account
+                </li>
+                </ul>
+                </li>
+                <li>Home Page
+                    <ul>
+                        <li>Home: provides a way for the user to view the list of all the water turbines in the database</li>
+                        <li>has a menu bar to the right that redirects to different pages (Map Page, My HidroPower Page) and a search bar for hidroplants</li>
+                        <li>has a top bar that provides redirects to an About Page, A Statistics Page and the User Page</li>
+                    </ul>
+                </li>
+                <li>Map Page
+                    <ul>
+                        <li>Map: using Leaflet, provides a map for viewing the hidroplants based on their latitude and longitude, and also provides a search bar in order to find a certain hidroplant's coordinates
+                        </li>
+                    </ul>
+                </li>
+                <li>My HidroPower Page
+                    <ul>
+                        <li>My HidroPower: provides a way for the user to input different data about a hidroplant (including a latitude and a longitude), and redirects the user to a page with Live Statistics about the hidroplant, depending on the weather,
+                            which the user can change from the interface
+                        </li>
+                    </ul>
+                </li>
+                <li>HidroPower Page
+                    <ul>
+                        <li>HidroPower: when a user clicks on a hidropower from the main page, it redirects the user to a page with the information about that hidroplant, as well as redirects to see the Live Statistics and the RSS Feed for that hidroplant
+                        </li>
+                    </ul>
+                </li>
+                <li>Live Statistics Page
+                    <ul>
+                        <li>Live Statistics: using PlotLy, provides a way for the user to see the live statistics of a hidroplant, depending on the weather, which the user can change from the interface
+                        </li>
+                    </ul>
+                </li>
+                <li>About Page
+                    <ul>
+                        <li>About: provides a way for the user to see the information about certain trivia facts, like International Water Day</li>
+                    </ul>
+                </li>
+                <li>Statistics Page
+                    <ul>
+                        <li>Statistics: provides a way for the user to see the information about the top 10 hidroplants sorted by their electrical capacity, and, using Chart.js, models graphs to see the data
+                    </ul>
+                    </li>
+                </li>
+                <li>User Page
+                    <ul>
+                        <li>User: provides a way for the user to change the email of their account, to delete their account and to disconnect
+                    </ul>
+                    </li>
+                </li>
+                <li>Admin Specific Page
+                    <ul>
+                        <li>The admin is a user with a special email address that is used to login to the application. The admin can add and delete hidroplants to the database from the home page.
+                    </ul>
+                    </li>
+                </li>
+            </ul>
+        </section>
+        <section id="article">
+            <!-- review? -->
+            <h3>User Classes and Characteristics</h3>
+            <ul>
+                <li>A model for the users.</li>
+                <li>A model for the hidroplants.</li>
+                <li>Controllers for diffenent CRUD operations to the database.</li>
+                <li>Routes to expose the endpoints of the server.</li>
+            </ul>
+        </section>
+        <section id="hunk">
+            <!-- review? -->
+            <h3>Operating environment and design constraints</h3>
+            <p>
+                This web application can be used in any operation system (Windows, Mac, Linux) that supports one of the main web browsers (like Google Chrome, Firefox, Microsoft Edge). Some design constraints will appear because of the different ways different browsers
+                interpret HTML, CSS, JS but the general functionalities should be the same. The backend server is written in NodeJS, and the version requires to run it is ^8.15.1.
+            </p>
+        </section>
+        <section id="inline">
+            <!-- review? -->
+            <h3>User Documentation</h3>
+            <p>
+                <a href="https://www.w3schools.com/html/default.asp">HTML documentation</a> <br>
+                <a href="https://www.w3schools.com/css/default.asp">CSS documentation</a> <br>
+                <a href="https://www.w3schools.com/js/default.asp">JavaScript documentation</a> <br>
+                <a href="https://www.redhat.com/en/topics/api/what-is-a-rest-api">RestAPI</a> <br>
+                <a href="https://circleci.com/blog/introduction-to-graphql/?utm_source=google&utm_medium=sem&utm_campaign=sem-google-dg--emea-en-dsa-maxConv-auth-brand&utm_term=g_-_c__dsa_&utm_content=&gclid=CjwKCAjw9e6SBhB2EiwA5myr9uD7JF4LyUq_UtlJb7DDKtHxYpNjQ1rDx6I3lTb1WQzXjzek-Q3CzRoCjOYQAvD_BwE">GraphQL Introduction</a>                <br>
+                <a href="https://www.postgresql.org/docs/">Database documentation</a> <br>
+            </p>
+        </section>
+        <section id="references">
+            <!-- review? -->
+            <h3>Dependencies</h3>
+            <p>
+                All the dependencies used for this web application will be specified in the project's <b>package.json</b> file.
+            </p>
+        </section>
+    </section>
+    <section id="semantics">
+        <!-- review? -->
+        <h2>External Interface Requirements</h2>
+        <section id="person-org">
+            <!-- review? -->
+            <h3>User Interfaces</h3>
+            <p>
+                Our web application provides diffenet sub-pages for the user management system and the hydropower plant management system. For the user management system, there will be pages for choosing between signup/login, and pages for the sign up and log in systems.
+                For the hydropower plant management system, there are: a page for getting information about the top 10 biggest capacity hydropower plants around the world, a page for getting the list of hydropower plants around the world, a page for querying
+                for a specific hydropower plant and visialising details about it and a page for users to define their own hydropower plants. Also there are pages for the User functions (like change email, delete account, disconnect), an about page with
+                generic trivia and a page which provides a RSS Feed.
+            </p>
+        </section>
+        <section id="roles">
+            <h3>Backend Interfaces</h3>
+            <p>
+                For the backend, we use an MVC model, models being for the users and hidroplants data, views being for the routes which are exposed to the frontend, and controllers being for implementation of the code which gets the data, parses it if needed, and sends
+                the response back for a specific request.
+            </p>
+        </section>
+        <section id="actions">
+            <h3>Communication Interfaces</h3>
+            <p>
+                These interfaces will manage the communication between frontend and backend, managing different HTTP requests (GET, POST, DELETE, PUT, PATCH etc.). Certain routes (all but Login, Regiser, Forgot-Password) are protected using JWT tokens, so the server
+                can assure that the user is logged in. The server exposes the routes, and, from the frontend we make requests using `axios` in order to get the needed data.
+            </p>
+        </section>
+    </section>
+    <section id="scholarly-article">
+        <!-- review? -->
+        <h2>System Features</h2>
+        <h3>User Management</h3>
+        <p>
+            This application will be able to manage users. Such users can sign in with a new account (username, password, email), in which case the system will add that account (with the password hashed) to the user table in the embedded database, and users can also
+            log in with an existing account (requiring username or email and password to be valid), in which case the database will be queryed to find if such an account exists.
+        </p>
+        <h3>Biggest Water Turbines Visualization</h3>
+        <p>
+            The system will import data about Water Turbines around the world, and users that are logged in will be able to visualize the biggest water turbines existing in the database. Users will be able to see turbine's location, electric power generated, capacity,
+            frequency of rotation, rated speed, average energy production and the turbines used with Fracis type 4 x 56,5 MW vertical axis.
+        </p>
+        <h3>Seach for a specific Turbine</h3>
+        <p>
+            Users will be able to search for a water turbine's name, and if it exists in the database, information about it (mentioned earlier) will be shown, along with it's status (in use, defective etc.), and a live page progress.
+        </p>
+        <h3>Templates for user-defined Water Turbines</h3>
+        <p>
+            Users are also be able to define their own template Water Turbines from My Hidroplant Page, feature which will help project the ideas and visialise how their defined hydropower plant will function, depending of the given specifications.
+        </p>
+    </section>
+    <section id="hypermedia" style="padding-bottom: 3em;">
+        <!-- review? -->
+        <h2>Other Nonfunctional Requirements</h2>
+        <ul>
+            <li>The webpage should load fast.</li>
+            <li>The code shall respect the HTML, CSS and JavaScript standards.</li>
+            <li>The system's database for water turbines should be large enough.</li>
+            <li>The system should provide a REST API.</li>
+            <li>Any exception situation should be reported by email.</li>
+        </ul>
+    </section>
+    <selection if="stackframe">
+        <h2>stackframe</h2>
+        <ul>
+            <li>Database: MongoDB</li>
+            <li>Backend: Vanilla NodeJS</li>
+            <li>Route exposing: RESTful API arhitectural design using MVC</li>
+            <li>Frontend login: Vanilla JavaScript</li>
+            <li>Frontend display: HTML, CSS</li>
+        </ul>
+    </selection>
+</body>
+
+</html>
