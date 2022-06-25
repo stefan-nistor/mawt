@@ -12,7 +12,42 @@ Develop a Web system for hydropower management: from the optimal location of hyd
 
 ### How to run
 * Clone the repository on your machine
-* Open a terminal in `/backend` folder and run `npm -i`. This will install all nedded dependencies
+* Open a terminal in `/backend` folder and run `npm i`. This will install all nedded dependencies
 * Run `hp-data-importer.py` script after editing it with desiered CSV file path (this operation should be completed once)
 * Run `npm start` or `npm run dev` (to start the server with `nodemon`) in  `/backend` folder to start backend server
 * Right-click on a `.html` page form `/frontend/views` and select `Open with Live Server` for Visual Studio Code, or use any plugin that allows you to view html files live.
+
+
+### Routes
+```
+Router {
+  getRoutes: {
+    '/auth': [Function (anonymous)],
+    '/users': [AsyncFunction (anonymous)],
+    '/users/email': [AsyncFunction (anonymous)],
+    '/users/jwt': [AsyncFunction (anonymous)],
+    '/hidroplants': [AsyncFunction (anonymous)],
+    '/hidroplants/name': [AsyncFunction (anonymous)],
+    '/hidroplants/top': [AsyncFunction (anonymous)],
+    '/hidroplants/closest': [AsyncFunction (anonymous)],
+    '/hidroplants/weather': [AsyncFunction (anonymous)],
+    '/hidroplants/rss': [AsyncFunction (anonymous)]
+  },
+  postRoutes: {
+    '/auth/login': [AsyncFunction (anonymous)],
+    '/auth/register': [AsyncFunction (anonymous)],
+    '/users': [AsyncFunction (anonymous)],
+    '/hidroplants': [AsyncFunction (anonymous)],
+    '/pwd/forgot-password': [AsyncFunction (anonymous)],
+    '/pwd/reset-password/:token': [AsyncFunction (anonymous)]
+  },
+  putRoutes: {
+    '/users/:id': [AsyncFunction (anonymous)],
+    '/hidroplants/:id': [AsyncFunction (anonymous)]
+  },
+  deleteRoutes: {
+    '/users/:id': [AsyncFunction (anonymous)],
+    '/hidroplants/:id': [AsyncFunction (anonymous)]
+  }
+}
+```
