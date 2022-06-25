@@ -12,6 +12,14 @@ const weatherTypes = {
 }
 Object.freeze(weatherTypes)
 
+const soilTypes = {
+    NORMAL: 0,
+    CLAY: 1,
+    SANDY: 2,
+    CHALKY: 3,
+}
+Object.freeze(soilTypes)
+
 module.exports = {
     port: process.env.PORT,
     hostUrl: process.env.HOST_URL,
@@ -24,5 +32,6 @@ module.exports = {
         "Access-Control-Max-Age": 2592000,
         "Content-type": "application/json"
     },
-    weatherTypes: weatherTypes
+    weatherTypes: weatherTypes,
+    soilTypes: soilTypes
 }
