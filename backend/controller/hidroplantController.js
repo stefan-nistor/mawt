@@ -343,6 +343,8 @@ module.exports.getChangesForWeather = async(req, res) => {
         let elec_cap = hidroplant.elec_cap
 
         const weather = Number(req.params.weather)
+        const soil = Number(req.params.soil)
+
         switch (weather) {
             case constants.weatherTypes.SUNNY:
                 elec_cap = elec_cap * (Math.random() * (0.5 - 0.3) + 0.3)
@@ -369,6 +371,20 @@ module.exports.getChangesForWeather = async(req, res) => {
                 elec_cap = elec_cap * 1.0
         }
 
+        switch (soil) {
+            case constants.soilTypes.CLAY:
+                elec_cap = elec_cap * (Math.random() * (1.3 - 1.1) + 1.1)
+                break;
+            case constants.soilTypes.SANDY:
+                elec_cap = elec_cap * (Math.random() * (0.8 - 0.6) + 0.6)
+                break;
+            case constants.soilTypes.CHALKY:
+                elec_cap = elec_cap * (Math.random() * (1.5 - 1.3) + 1.3)
+                break;
+            default:
+                elec_cap = elec_cap * 1.0
+        }
+
         hidroplant.elec_cap = elec_cap
 
         res.statusCode = 200
@@ -388,24 +404,24 @@ const parseHidroplant = (hidroplant) => {
     let result = []
     let obj = {
         hidroplant: [
-            {name: hidroplant.name ? encodeURIComponent(hidroplant.name) : 'Unknown'},
-            {description: hidroplant.purpose ? encodeURIComponent(hidroplant.purpose) : 'Unknown'},
-            {lake: hidroplant.lake ? encodeURIComponent(hidroplant.lake) : 'Unknown'},
-            {river: hidroplant.river ? encodeURIComponent(hidroplant.river) : 'Unknown'},
-            {admin: hidroplant.admin_unit ? encodeURIComponent(hidroplant.admin_unit) : 'Unknown'},
-            {year: hidroplant.dam_completed ? hidroplant.dam_completed : 'Unknown' },
-            {city: hidroplant.near_city ? encodeURIComponent(hidroplant.near_city) : 'Unknown'},
-            {electic_capacity: hidroplant.elec_cap ? hidroplant.elec_cap : 'Unknown'},
-            {status: hidroplant.op_status ? encodeURIComponent(hidroplant.op_status) : 'Unknown'},
-            {latitude: hidroplant.lat_res ? hidroplant.lat_res : 'Unknown'},
-            {longitude: hidroplant.long_res ? hidroplant.long_res : 'Unknown'}
+            { name: hidroplant.name ? encodeURIComponent(hidroplant.name) : 'Unknown' },
+            { description: hidroplant.purpose ? encodeURIComponent(hidroplant.purpose) : 'Unknown' },
+            { lake: hidroplant.lake ? encodeURIComponent(hidroplant.lake) : 'Unknown' },
+            { river: hidroplant.river ? encodeURIComponent(hidroplant.river) : 'Unknown' },
+            { admin: hidroplant.admin_unit ? encodeURIComponent(hidroplant.admin_unit) : 'Unknown' },
+            { year: hidroplant.dam_completed ? hidroplant.dam_completed : 'Unknown' },
+            { city: hidroplant.near_city ? encodeURIComponent(hidroplant.near_city) : 'Unknown' },
+            { electic_capacity: hidroplant.elec_cap ? hidroplant.elec_cap : 'Unknown' },
+            { status: hidroplant.op_status ? encodeURIComponent(hidroplant.op_status) : 'Unknown' },
+            { latitude: hidroplant.lat_res ? hidroplant.lat_res : 'Unknown' },
+            { longitude: hidroplant.long_res ? hidroplant.long_res : 'Unknown' }
         ]
     }
     result.push(obj)
     return result
 }
 
-module.exports.getRssFeed = async (req, res) => {
+module.exports.getRssFeed = async(req, res) => {
     if (!checkAuth(req, res)) {
         return
     }
@@ -431,14 +447,13 @@ module.exports.getRssFeed = async (req, res) => {
             custom_elements: parseHidroplant(hidroplant)
         })
 
-        const xml = feed.xml({indent: true})
+        const xml = feed.xml({ indent: true })
         res.statusCode = 200
         res.setHeader('Content-type', 'text/xml')
         res.write(JSON.stringify({ success: true, xml, message: 'OK' }))
         res.end()
 
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e)
         res.statusCode = 500
         res.setHeader('Content-type', 'application/json')
