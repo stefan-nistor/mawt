@@ -10,3 +10,10 @@ export const weatherTypes = {
     THUNDER: 6,
     WINDY: 7
 };
+
+export const soilTypes = {
+    NORMAL: 0,
+    CLAY: 1,
+    SANDY: 2,
+    CHALKY: 3,
+}

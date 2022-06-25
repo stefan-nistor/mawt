@@ -1,4 +1,4 @@
-import { BASE_URL, weatherTypes } from "./constants.js";
+import { BASE_URL, weatherTypes, soilTypes } from "./constants.js";
 
 const authToken = sessionStorage.getItem("JWT_TOKEN");
 
@@ -17,6 +17,13 @@ const weatherToTypeMap = {
   thunder: weatherTypes.THUNDER,
   windy: weatherTypes.WINDY,
 };
+const soilToTypeMap = {
+  normal: soilTypes.NORMAL,
+  clay: soilTypes.CLAY,
+  sandy: soilTypes.SANDY,
+  chalky: soilTypes.CHALKY,
+
+}
 
 const queryString = window.location.search;
 
@@ -67,7 +74,7 @@ const getElectricCapChange = async (name) => {
   try {
     
     const weatherStr = document.getElementById("weather").value;
-
+    const soilStr = document.getElementById("soil").value;
     let hidroplant;
 
     if(name==null){
@@ -78,11 +85,12 @@ const getElectricCapChange = async (name) => {
     }
 
 
+    let soilSt= String(soilToTypeMap[soilStr]);
     let wheatherSt = String(weatherToTypeMap[weatherStr]);
     const res = await axios.get(
       `${BASE_URL}/hidroplants/weather?name=${encodeURIComponent(
         hidroplant.name
-      )}&weather=${wheatherSt}`,
+      )}&weather=${wheatherSt}&soil=${soilSt}`,
       {
         headers: {
           Authorization: `Bearer ${authToken}`,
